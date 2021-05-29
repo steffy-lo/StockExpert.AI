@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Button from './components/Button';
+import TextField from './components/TextField';
+import Autocomplete from './components/Autocomplete';
+import { customAutoCompleteStyle } from './components/Autocomplete';
+import { symbolLookUp, getStockNews } from './actions';
 
 function App() {
-  return (
+
+    React.useEffect(() => {
+
+    }, [])
+
+    const [suggestions, setSuggestions] = React.useState([]);
+    const [search, setSearch] = React.useState("");
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Let's run some sentimental analysis on stocks!
+      <p style={{ fontSize: "22px" }} >To get started, enter the stock ticker symbol you'd like to analyze.</p>
+      <div style={{ width: "50%", margin: "35px" }}>
+          <Autocomplete
+              freeSolo
+              options={suggestions.map((option) => option.symbol)}
+              classes={customAutoCompleteStyle()}
+              renderInput={(params) => (
+                  <TextField {...params}
+                             label="Enter Stock Ticker Symbol"
+                             variant="outlined"
+                             value={search}
+                             onChange={async (e) => {
+                                 setSearch(e.target.value)
+                                 setSuggestions(await symbolLookUp(e.target.value))
+                             }}
+                  />
+              )}
+          />
+      </div>
+      <Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
+          const newsList = await getStockNews(search);
+      }}>ANALYZE</Button>
     </div>
-  );
+    );
 }
 
 export default App;
