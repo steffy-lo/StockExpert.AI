@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 const CustomTextField = withStyles({
     root: {
+        minWidth:"12rem",
         '& .MuiIconButton-root': {
             color: 'white'
         },

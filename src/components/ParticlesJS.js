@@ -4,9 +4,12 @@ export default function ParticlesJS(){
   
 return (
     <div style={{
-        backgroundColor:"#282c34"
+        position:"relative",
+        backgroundColor:"#282c34",
+        minHeight:"100vh"
       }}>
     <Particles
+    height={window.outerHeight}
     params={{
 	    "particles": {
 	        "number": {
