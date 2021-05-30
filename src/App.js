@@ -5,6 +5,7 @@ import TextField from './components/TextField';
 import Autocomplete from './components/Autocomplete';
 import { customAutoCompleteStyle } from './components/Autocomplete';
 import { symbolLookUp, getStockNews } from './actions';
+import Landing from './pages/Landing';
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
     const [search, setSearch] = React.useState("");
 
     return (
+        <>
+        <Landing/>
     <div className="App">
       Let's run some sentimental analysis on stocks!
       <p style={{ fontSize: "22px" }} >To get started, enter the stock ticker symbol you'd like to analyze.</p>
@@ -41,6 +44,7 @@ function App() {
           const newsList = await getStockNews(search);
       }}>ANALYZE</Button>
     </div>
+    </>
     );
 }
 
