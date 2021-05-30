@@ -5,6 +5,8 @@ const CustomButton = withStyles((theme) => ({
     root: {
         color: "white",
         backgroundColor: "#7469ff",
+        minWidth:"6rem",
+        textTransform:"none",
         '&:hover': {
             backgroundColor: "#4c46a7",
         },

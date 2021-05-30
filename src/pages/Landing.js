@@ -1,8 +1,10 @@
 import ParticlesJS from '../components/ParticlesJS';
 import '../App.css';
-import { Container, Box } from '@material-ui/core';
-import Typewriter from 'react-simple-typewriter'
-import 'react-simple-typewriter/dist/index.css'
+import { Container } from '@material-ui/core';
+import Typewriter from 'react-simple-typewriter';
+import 'react-simple-typewriter/dist/index.css';
+import Button from '../components/Button';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 export default function Landing(){
     return(
@@ -26,7 +28,17 @@ export default function Landing(){
                     />
                     </span>
                 </h1>
+                <Button style={{marginTop:"1.2rem", padding:"0.3rem 2.5rem",fontSize: "1.2rem"}}>Sign Up</Button>
+                
             </Container>
+            <div className="demo-div">
+                <div className="demo">
+                    <h1 >Try a Demo</h1>
+                    <ArrowDownwardIcon style={{ color: "white" }}/>
+                </div>
+            </div>
+            
+            
         </div>
     )
 }

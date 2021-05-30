@@ -42,7 +42,7 @@ function App() {
       </div>
       <Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
           const newsList = await getStockNews(search);
-      }}>ANALYZE</Button>
+      }}>Analyze</Button>
     </div>
     </>
     );

@@ -12,10 +12,42 @@
 
 .header{
   position: absolute;
-  top: 33vh;
+  top: 30%;
   left: 2rem;
   width: 100%;
   height: 100%;
   color:white;
-  min-height: 80vh;
+}
+
+.demo-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.demo{
+  transition:0.3s;
+  position: absolute;
+  top: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:white;
+  opacity: 0.7;
+}
+
+.demo h1{
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+.demo:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.demo:hover h1{
+  transition:0.3s;
+  font-size: 1.3rem;
 }
