@@ -1,14 +1,38 @@
 import ParticlesJS from '../components/ParticlesJS';
 import '../App.css';
+import React, {useState, useEffect} from 'react';
 import { Container } from '@material-ui/core';
 import Typewriter from 'react-simple-typewriter';
 import 'react-simple-typewriter/dist/index.css';
 import Button from '../components/Button';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import {Link} from 'react-router-dom';
 
-export default function Landing(){
+export default function Landing({forwardedRef, mainRef}){
+    const [component, setComponent] = useState();
+  
+    const handleScroll = () =>{
+      if(component !== undefined){
+        window.scrollTo({
+          top: component.offsetTop,
+          left: 0,
+          behavior: "smooth"
+        });
+      }
+    };
+  
+    useEffect(()=>{
+      if(component !== undefined){
+        window.scrollTo({
+          top: component.offsetTop,
+          left: 0,
+          behavior: "smooth"
+        });
+      }
+    },[component])
+
     return(
-        <div>
+        <div ref={forwardedRef}>
             <ParticlesJS/>
             <Container className="header">
                 <h1 style={{fontSize:"2.8rem"}}>Welcome to StockExpert<span style={{color:"#7469ff"}}>.AI</span></h1>
@@ -33,12 +57,12 @@ export default function Landing(){
             </Container>
             <div className="demo-div">
                 <div className="demo">
-                    <h1 >Try a Demo</h1>
+                <Link className="link" to="/#main" onClick={()=>{setComponent(mainRef.current); handleScroll()}}>
+                    <h1>Try a Demo</h1>
                     <ArrowDownwardIcon style={{ color: "white" }}/>
+                    </Link>
                 </div>
             </div>
-            
-            
         </div>
     )
 }

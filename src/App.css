@@ -51,3 +51,9 @@
   transition:0.3s;
   font-size: 1.3rem;
 }
+
+.link{
+  color:white;
+  text-decoration: none;
+  text-align: center;
+}
