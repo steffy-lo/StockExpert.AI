@@ -12,6 +12,23 @@ export const getExpertAiToken = async () => {
     }
 }
 
+export const getSentimentAnalysis = async (token, text) => {
+    try {
+        const response = await axios.post('https://nlapi.expert.ai/v2/analyze/standard/en/sentiment', {
+            "document": {
+                "text": text
+            }
+        }, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return response.data.data.sentiment;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const getContentSummary = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/analyze/standard/en/relevants', {
