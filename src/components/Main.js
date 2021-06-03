@@ -6,7 +6,7 @@ import Autocomplete from './Autocomplete';
 import { customAutoCompleteStyle } from './Autocomplete';
 import { symbolLookUp, getStockNews, getExpertAiToken, getSentimentAnalysis } from '../actions';
 import Loader from './Loader';
-import { LabelOff } from '@material-ui/icons';
+import OverallSentiment from './OverallSentiment';
 
 
 function Main({forwardedRef}) {
@@ -14,6 +14,7 @@ function Main({forwardedRef}) {
     const [expertAiToken, setExpertAiToken] = useState("");
     const [mean, setMean] = useState();
     const [loading, setLoading] = useState(false);
+    const [showResults, setShowResults] = useState(false);
 
     const getAndSetExpertAiToken = async () => {
         setExpertAiToken(await getExpertAiToken());
@@ -25,7 +26,11 @@ function Main({forwardedRef}) {
 
 
     useEffect(() => {
-        if(mean!==undefined) console.log("Mean: "+mean)
+        if(mean!==undefined) {
+            console.log("Mean: "+mean)
+            setLoading(false);
+            setShowResults(true);
+        }
     }, [mean])
 
     const [suggestions, setSuggestions] = useState([]);
@@ -58,9 +63,10 @@ function Main({forwardedRef}) {
     }
     return (
     <div className="App" ref={forwardedRef}>
-         <p style={{ marginBottom: "0.2rem" }}>{loading?`Analyzing 30 news sources related to ${search.toUpperCase()} stock...`:"Let's run some sentimental analysis on stocks!"}</p>
-         <p style={{ fontSize: "22px" }} >{loading?`Please wait for a moment.`:"To get started, enter the stock ticker symbol you'd like to analyze."}</p>
-         <div style={{ width: "50%", margin: "35px", display: loading?"none":"block" }}>
+         <p style={{ marginBottom: "0.2rem" }}>{loading?`Analyzing 30 news sources related to ${search.toUpperCase()} stock...`:
+         showResults? "Thank you for waiting.":"Let's run some sentimental analysis on stocks!"}</p>
+         <p style={{ fontSize: "22px" }} >{loading?`Please wait for a moment.`:showResults?`Here are the results for ${search.toUpperCase()} stock.`:"To get started, enter the stock ticker symbol you'd like to analyze."}</p>
+         <div style={{ width: "50%", margin: "35px", display: loading || showResults ?"none":"block" }}>
              <Autocomplete
                  freeSolo
                  options={suggestions.map((option) => option.symbol)}
@@ -78,12 +84,24 @@ function Main({forwardedRef}) {
                  )}
              />
          </div>
-         {!loading?<Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
+         {loading?<Loader/>:showResults?null:<Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
              const newsList = await getStockNews(search);
              setNews(newsList);
              feedNewsToAPI(newsList);
              setLoading(true);
-         }}>Analyze</Button>:<Loader/>}
+         }}>Analyze</Button>}
+
+         {/****************** RESULTS *************************/}
+         {showResults?
+         <div>
+         <OverallSentiment value={mean}/>
+         <p style={{
+            position: 'absolute',
+            marginTop: "-260px",
+            marginLeft: '95px',
+            fontSize:"28px"}}>Overall Sentiment</p>
+         </div>
+         :null}
        
     </div>
 
