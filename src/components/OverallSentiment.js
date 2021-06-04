@@ -20,6 +20,7 @@ export default function OverallSentiment({value}) {
       x.endAngle = -60;
       axis.renderer.minGridDistance = 300;
       axis.renderer.labels.template.fill = am4core.color("#FFF");
+      axis.renderer.labels.template.fontSize = 15; 
 
       let range = axis.axisRanges.create();//negative values
       range.value = -100;
@@ -44,12 +45,6 @@ export default function OverallSentiment({value}) {
       hand.radius = am4core.percent(92);
       hand.startWidth = 15;
 
-      //custom label on the value
-      var label = axis.axisRanges.create();
-      label.value = value;
-      label.label.text = value.toFixed(2);
-      label.label.fontSize = 10;   
-  
       // Animate
       setTimeout(function() {
         hand.showValue(value, am4core.ease.cubicOut);
@@ -63,6 +58,6 @@ export default function OverallSentiment({value}) {
     }, []);
 
     return (
-        <div id="chartdiv" style={{ width: "400px", height: "500px" }}></div>
+        <div id="chartdiv" style={{ width: "400px", height: "280px", marginTop:"70px"}}></div>
       );
 }

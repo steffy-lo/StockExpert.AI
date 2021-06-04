@@ -4,15 +4,20 @@ import Button from './Button';
 import TextField from './TextField';
 import Autocomplete from './Autocomplete';
 import { customAutoCompleteStyle } from './Autocomplete';
-import { symbolLookUp, getStockNews, getExpertAiToken, getSentimentAnalysis } from '../actions';
+import { symbolLookUp, getStockNews, getExpertAiToken, getSentimentAnalysis, getBehavioralTraits, getEmotionalTraits } from '../actions';
 import Loader from './Loader';
-import OverallSentiment from './OverallSentiment';
 
+//********CHARTS *******************//
+import OverallSentiment from './OverallSentiment';
+import BehaviouralTraits from './BehaviouralTraits';
+import EmotionalTraits from './EmotionalTraits';
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
     const [expertAiToken, setExpertAiToken] = useState("");
     const [mean, setMean] = useState();
+    const [behavioralTraits, setBehavioralTraits] = useState([]);
+    const [emotionalTraits, setEmotionalTraits] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showResults, setShowResults] = useState(false);
 
@@ -36,7 +41,7 @@ function Main({forwardedRef}) {
     const [suggestions, setSuggestions] = useState([]);
     const [search, setSearch] = useState("");
 
-    const feedNewsToAPI = async (news) =>{
+    const fetchSentimentalAPI = async (news) =>{
         let requests = news.map((item) => {
             return new Promise((resolve) => {
                 let result = getSentimentAnalysis(expertAiToken, item.content);
@@ -46,6 +51,64 @@ function Main({forwardedRef}) {
         Promise.all(requests).then((result) => {
             calculateMean(result);
             calculateMedian(result);
+        });
+    }
+
+    const fetchBehavioralTraitsAPI = async (news) =>{
+        let requests = news.map((item) => {
+            return new Promise((resolve) => {
+                let result = getBehavioralTraits(expertAiToken, item.content);
+                resolve(result);
+            });
+        })
+        Promise.all(requests).then((result) => {
+            const filtered = result.filter(item => item.length > 0);
+            let behavioralTraits = []; //use for pie chart
+            filtered.map(items=>{
+                //item is an array
+                items.forEach(item=>{
+                    // check if label already exists, if true, just add percentage to it
+                    if(behavioralTraits.some(e => e.name === item.label)){
+                        let obj = behavioralTraits.filter(e => e.name === item.label)
+                        obj.value += item.frequency/(filtered.length*100)
+                    }else{
+                        //label doesn't exist, create a new one
+                        let obj = {"name": item.label, "value": item.frequency/(filtered.length*100)}
+                        behavioralTraits.push(obj);
+                    }
+                })
+            })
+            console.log(behavioralTraits)
+            setBehavioralTraits(behavioralTraits);
+        });
+    }
+
+    const fetchEmotionalTraitsAPI = async (news) =>{
+        let requests = news.map((item) => {
+            return new Promise((resolve) => {
+                let result = getEmotionalTraits(expertAiToken, item.content);
+                resolve(result);
+            });
+        })
+        Promise.all(requests).then((result) => {
+            const filtered = result.filter(item => item.length > 0);
+            let data = []; //use for pie chart
+            filtered.map(items=>{
+                //item is an array
+                items.forEach(item=>{
+                    // check if label already exists, if true, just add percentage to it
+                    if(data.some(e => e.name === item.label)){
+                        let obj = data.filter(e => e.name === item.label)
+                        obj.value += item.frequency/(filtered.length*100)
+                    }else{
+                        //label doesn't exist, create a new one
+                        let obj = {"name": item.label, "value": item.frequency/(filtered.length*100)}
+                        data.push(obj);
+                    }
+                })
+            })
+            console.log(data)
+            setEmotionalTraits(data);
         });
     }
 
@@ -87,21 +150,51 @@ function Main({forwardedRef}) {
          {loading?<Loader/>:showResults?null:<Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
              const newsList = await getStockNews(search);
              setNews(newsList);
-             feedNewsToAPI(newsList);
+             fetchSentimentalAPI(newsList);
+             fetchBehavioralTraitsAPI(newsList);
+             fetchEmotionalTraitsAPI(newsList);
              setLoading(true);
          }}>Analyze</Button>}
 
          {/****************** RESULTS *************************/}
          {showResults?
          <div>
-         <OverallSentiment value={mean}/>
+             <div style={{display:"flex", justifyContent:"center"}}>
+             <OverallSentiment value={mean}/>
          <p style={{
             position: 'absolute',
-            marginTop: "-260px",
-            marginLeft: '95px',
-            fontSize:"28px"}}>Overall Sentiment</p>
+            marginTop: "160px",
+            fontSize:"22px"}}>{mean.toFixed(2)}</p>
+         <p style={{
+            position: 'absolute',
+            fontSize:"24px"}}>Overall Sentiment</p>
+                 </div>
+         
+
+            <div style={{display:"flex", flexWrap:"wrap"}}>
+            <div style={{display:"flex"}}> 
+            <p style={{
+                marginTop: "-29px",
+                marginRight:"-272px",
+                fontSize:"22px"}}>Behavioral Traits</p>
+                <BehaviouralTraits data={behavioralTraits}/>
+                
+                
+            </div>
+           <div style={{display:"flex"}}>
+                <EmotionalTraits data={emotionalTraits}/>
+                <p style={{
+                marginTop: "-29px" ,
+                marginLeft:"-272px",
+                fontSize:"22px"}}>Emotional Traits</p>
+           </div>
+                </div>
+           
          </div>
+         
          :null}
+
+         
        
     </div>
 

@@ -57,3 +57,7 @@
   text-decoration: none;
   text-align: center;
 }
+
+.recharts-legend-wrapper{
+  left:-50px !important;
+}
