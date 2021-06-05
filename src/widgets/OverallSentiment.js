@@ -4,10 +4,11 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import {getSentimentAnalysis} from "../actions";
 import Loader from "../components/Loader";
+import {sentimentData} from "../mock_data";
 
 am4core.useTheme(am4themes_animated);
 
-export default function OverallSentiment({newsList, token}) {
+export default function OverallSentiment({newsList, token, setSentimentResult}) {
     const chart = useRef(null);
     const [mean, setMean] = useState();
 
@@ -32,11 +33,13 @@ export default function OverallSentiment({newsList, token}) {
       Promise.all(requests).then((result) => {
         calculateMean(result);
         calculateMedian(result);
+        setSentimentResult(result);
       });
     }
 
     useEffect(() => {
       setMean(5.5);
+      setSentimentResult(sentimentData);
       // fetchSentimentalAPI(newsList);
     }, [newsList])
 

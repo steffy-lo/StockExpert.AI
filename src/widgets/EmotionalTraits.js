@@ -58,7 +58,6 @@ export default function EmotionalTraits({newsList, token}){
 
     const renderLegend = (props) => {
         const { payload } = props;
-        console.log(payload)
       
         return (
           <ul style={{margin:0, textAlign:"left"}}>

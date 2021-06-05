@@ -18,7 +18,7 @@ import { newsListData } from "../mock_data";
 import OverallSentiment from '../widgets/OverallSentiment';
 import BehaviouralTraits from '../widgets/BehaviouralTraits';
 import EmotionalTraits from '../widgets/EmotionalTraits';
-import ContentSummary from "../widgets/ContentSummary";
+import ArticleBreakdown from "../widgets/ArticleBreakdown";
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
@@ -27,6 +27,7 @@ function Main({forwardedRef}) {
     const [showResults, setShowResults] = useState(false);
     const [suggestions, setSuggestions] = useState([]);
     const [search, setSearch] = useState("");
+    const [sentimentResult, setSentimentResult] = useState([]);
 
     const getAndSetExpertAiToken = async () => {
         setExpertAiToken(await getExpertAiToken());
@@ -86,9 +87,8 @@ function Main({forwardedRef}) {
          {showResults?
          <div>
              <div style={{display:"flex", justifyContent:"center"}}>
-                 <OverallSentiment newsList={news} token={expertAiToken}/>
+                 <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
              </div>
-
 
              <div style={{display:"flex", justifyContent:"center"}}>
                  <BehaviouralTraits newsList={news} token={expertAiToken}/>
@@ -96,7 +96,7 @@ function Main({forwardedRef}) {
              </div>
 
              <div style={{ marginTop: "120px", display:"flex", justifyContent:"center"}}>
-                 <ContentSummary newsList={news} token={expertAiToken}/>
+                 <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
              </div>
 
          </div>
