@@ -36,7 +36,7 @@ export default function OverallSentiment({newsList, token}) {
     }
 
     useEffect(() => {
-      // setMean(5.5);
+      setMean(5.5);
       // fetchSentimentalAPI(newsList);
     }, [newsList])
 
