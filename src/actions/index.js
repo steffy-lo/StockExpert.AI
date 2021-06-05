@@ -16,7 +16,7 @@ export const getSentimentAnalysis = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/analyze/standard/en/sentiment', {
             "document": {
-                "text": text
+                "text": text.slice(0, 4000)
             }
         }, {
             headers: {
@@ -33,7 +33,7 @@ export const getBehavioralTraits = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/categorize/behavioral-traits/en', {
             "document": {
-                "text": text
+                "text": text.slice(0, 4000)
             }
         }, { 
             headers: {
@@ -50,7 +50,7 @@ export const getEmotionalTraits = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/categorize/emotional-traits/en', {
             "document": {
-                "text": text
+                "text": text.slice(0, 4000)
             }
         }, { 
             headers: {
@@ -91,7 +91,7 @@ export const symbolLookUp = async (query) => {
 
 export const getStockNews = async (query) => {
     try {
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&language=en&excludeDomains=stocknews.com&sortBy=popularity&pageSize=30&apiKey=${process.env.REACT_APP_NEWS_API_TOKEN}`);
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&language=en&excludeDomains=stocknews.com&sortBy=popularity&pageSize=15&apiKey=${process.env.REACT_APP_NEWS_API_TOKEN}`);
         return response.data.articles
     } catch (error) {
         console.error(error);

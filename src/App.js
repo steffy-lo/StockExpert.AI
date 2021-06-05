@@ -1,13 +1,8 @@
 import React, { useRef } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
-import Button from './components/Button';
-import TextField from './components/TextField';
-import Autocomplete from './components/Autocomplete';
-import { customAutoCompleteStyle } from './components/Autocomplete';
-import { symbolLookUp, getStockNews, getExpertAiToken } from './actions';
 import Landing from './pages/Landing';
-import Main from './components/Main';
+import Main from './pages/Main';
 
 function Home({landing, main}){
     return(
