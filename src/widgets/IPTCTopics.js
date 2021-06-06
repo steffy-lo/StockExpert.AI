@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 import '../App.css';
 import {getIPTCTopics} from "../actions";
 import {IPTCData} from "../mock_data";
