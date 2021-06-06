@@ -22,6 +22,7 @@ import ArticleBreakdown from "../widgets/ArticleBreakdown";
 import IPTCTopics from "../widgets/IPTCTopics";
 import PeerComparison from "../widgets/PeerComparison";
 import SentimentHistogram from "../widgets/SentimentHistogram";
+import Trends from "../widgets/Trends";
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
@@ -107,6 +108,10 @@ function Main({forwardedRef}) {
 
              <div style={{display:"flex", justifyContent:"center"}}>
                  <PeerComparison stock={search} sentiment={sentimentResult}/>
+             </div>
+
+             <div style={{display:"flex", justifyContent:"center"}}>
+                 <Trends stock={search}/>
              </div>
 
              <div style={{ marginTop: "120px", display:"flex", justifyContent:"center"}}>

@@ -31,6 +31,15 @@ function PeerComparison({stock, sentiment}) {
                 if (i === 0) { // benchmark stock
                     unitPercentNeg = negativityMean / res.sentiment.bearishPercent
                     unitPercentPos = positivityMean / res.sentiment.bullishPercent
+
+                    let sectorNegativity = (1 - res.sectorAverageBullishPercent) * unitPercentNeg;
+                    let sectorPositivity = res.sectorAverageBullishPercent * unitPercentPos
+                    stockSentimentList.push({ // sector info
+                        symbol: "Sector",
+                        negativity: sectorNegativity,
+                        positivity: sectorPositivity,
+                        overall: sectorNegativity + sectorPositivity
+                    })
                 }
                 res.negativity = res.sentiment.bearishPercent * unitPercentNeg
                 res.positivity = res.sentiment.bullishPercent * unitPercentPos
@@ -68,7 +77,7 @@ function PeerComparison({stock, sentiment}) {
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
             <p style={{
-                fontSize:"22px"}}>Peer Sentiment Comparison
+                fontSize:"22px"}}>Peer & Sector Comparison
             </p>
             <BarChart
                 width={500}
@@ -82,7 +91,7 @@ function PeerComparison({stock, sentiment}) {
                 }}
             >
                 <CartesianGrid strokeDasharray="4 2" />
-                <XAxis dataKey="name" tick={{fontSize: 12}} />
+                <XAxis dataKey="symbol" tick={{fontSize: 12}} />
                 <YAxis tick={{fontSize: 12}} />
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="overall" fill="#FFBB28"/>

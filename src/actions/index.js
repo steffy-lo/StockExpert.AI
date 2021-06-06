@@ -97,6 +97,15 @@ export const getContentSummary = async (token, text) => {
     }
 }
 
+export const getRecommendationTrends = async (symbol) => {
+    try {
+        const response = await axios.get(`https://finnhub.io/api/v1/stock/recommendation?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
+        return response.data
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const getNewsSentiment = async (symbol) => {
     try {
         const response = await axios.get(`https://finnhub.io/api/v1/news-sentiment?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
