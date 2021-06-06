@@ -57,12 +57,16 @@ export default function BehaviouralTraits({newsList, token}) {
 
     const renderLegend = (props) => {
         const { payload } = props;
+        const maxRows = 15;
+        const columns = Math.round(payload.length/maxRows);
       
         return (
           <ul style={{margin:0, textAlign:"left"}}>
             {
               payload.map((entry, index) => (
-                <li style={{fontSize:"15px", color:`${entry.color}`}} key={`item-${index}`}>{entry.value}</li>
+                  index < Math.round(payload.length/columns)?
+                <li className="left" style={{fontSize:"15px", color:`${entry.color}`}} key={`item-${index}`}>{entry.value}</li>
+                  :<li className="right" style={{fontSize:"15px", color:`${entry.color}`}} key={`item-${index}`}>{entry.value}</li>
               ))
             }
           </ul>
@@ -70,13 +74,12 @@ export default function BehaviouralTraits({newsList, token}) {
       }
 
     return (
-        <div style={{ display: "flex"}}>
+        <div style={{ display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center",marginTop:"30px"}}>
             <p style={{
                 marginTop: "-29px",
-                marginRight:"-272px",
                 fontSize:"22px"}}>Behavioral Traits
             </p>
-            <PieChart width={400} height={200}>
+            <PieChart width={400} height={480}>
                 <Pie
                     dataKey="value"
                     data={behavioralTraits}
@@ -93,7 +96,7 @@ export default function BehaviouralTraits({newsList, token}) {
                     ))}
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
-                <Legend layout="vertical" verticalAlign="middle" content={renderLegend}/>
+                <Legend layout="vertical" verticalAlign="bottom" content={renderLegend}/>
             </PieChart>
         </div>
       );

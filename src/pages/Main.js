@@ -19,6 +19,7 @@ import OverallSentiment from '../widgets/OverallSentiment';
 import BehaviouralTraits from '../widgets/BehaviouralTraits';
 import EmotionalTraits from '../widgets/EmotionalTraits';
 import ArticleBreakdown from "../widgets/ArticleBreakdown";
+import IPTCTopics from "../widgets/IPTCTopics";
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
@@ -90,10 +91,14 @@ function Main({forwardedRef}) {
                  <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
              </div>
 
-             <div style={{display:"flex", justifyContent:"center"}}>
+             <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:"flex-start"}}>
                  <BehaviouralTraits newsList={news} token={expertAiToken}/>
                  <EmotionalTraits newsList={news} token={expertAiToken}/>
              </div>
+
+             <div style={{display:"flex", justifyContent:"center"}}>
+                <IPTCTopics newsList={news} token={expertAiToken}/>
+            </div>
 
              <div style={{ marginTop: "120px", display:"flex", justifyContent:"center"}}>
                  <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult}/>

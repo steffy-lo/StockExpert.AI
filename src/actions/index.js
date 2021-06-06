@@ -63,6 +63,23 @@ export const getEmotionalTraits = async (token, text) => {
     }
 }
 
+export const getIPTCTopics = async (token, text) => {
+    try {
+        const response = await axios.post('https://nlapi.expert.ai/v2/categorize/iptc/en', {
+            "document": {
+                "text": text.slice(0, 4000)
+            }
+        }, { 
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        return response.data.data.categories;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const getContentSummary = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/analyze/standard/en/relevants', {

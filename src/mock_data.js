@@ -8750,3 +8750,54 @@ export const articleBreakdownData = [
         ]
     }
 ]
+
+export const IPTCData = [
+    {
+      "name": "Economy, business and finance",
+      "value": 0.0391
+    },
+    {
+      "name": "Stock activity",
+      "value": 0.0086
+    },
+    {
+      "name": "Investments",
+      "value": 0.0172
+    },
+    {
+      "name": "Recession",
+      "value": 0.0086
+    },
+    {
+      "name": "Stocks",
+      "value": 0.0501
+    },
+    {
+      "name": "Earnings",
+      "value": 0.0125
+    },
+    {
+      "name": "Restaurant",
+      "value": 0.00895
+    },
+    {
+      "name": "IT-computer sciences",
+      "value": 0.008525
+    },
+    {
+      "name": "Hardware",
+      "value": 0.026600000000000002
+    },
+    {
+      "name": "Semiconductors and active components",
+      "value": 0.03785
+    },
+    {
+      "name": "Industrial component",
+      "value": 0.0121
+    },
+    {
+      "name": "Epidemic",
+      "value": 0.012975
+    }
+]

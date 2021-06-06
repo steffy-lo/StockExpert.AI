@@ -70,8 +70,12 @@ export default function EmotionalTraits({newsList, token}){
         );
       }
     return (
-        <div style={{ display: "flex"}}>
-            <PieChart width={400} height={200}>
+        <div style={{ display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+             <p style={{
+                marginTop: "-29px" ,
+                fontSize:"22px"}}>Emotional Traits
+            </p>
+            <PieChart width={400} height={400}>
                 <Pie
                     dataKey="value"
                     data={emotionalTraits}
@@ -88,13 +92,9 @@ export default function EmotionalTraits({newsList, token}){
                     ))}
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
-                <Legend layout="vertical" verticalAlign="middle" content={renderLegend}/>
+                <Legend layout="vertical" verticalAlign="bottom" content={renderLegend}/>
             </PieChart>
-            <p style={{
-                marginTop: "-29px" ,
-                marginLeft:"-272px",
-                fontSize:"22px"}}>Emotional Traits
-            </p>
+           
         </div>
       );
 }
