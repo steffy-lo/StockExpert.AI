@@ -16,7 +16,7 @@ export default function OverallSentiment({newsList, token, setSentimentResult}) 
       let sum = result.reduce((acc,currentValue)=>{
         return acc + currentValue.overall;
       },0)
-      setMean(sum/30);
+      setMean(sum/15);
     }
 
     const calculateMedian = (result) =>{

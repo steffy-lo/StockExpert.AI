@@ -97,6 +97,24 @@ export const getContentSummary = async (token, text) => {
     }
 }
 
+export const getNewsSentiment = async (symbol) => {
+    try {
+        const response = await axios.get(`https://finnhub.io/api/v1/news-sentiment?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
+        return response.data
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export const getPeerCompanies = async (symbol) => {
+    try {
+        const response = await axios.get(`https://finnhub.io/api/v1/stock/peers?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
+        return response.data.slice(1, 5)
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const symbolLookUp = async (query) => {
     try {
         const response = await axios.get(`https://finnhub.io/api/v1/search?q=${query}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
