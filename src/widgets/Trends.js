@@ -8,7 +8,7 @@ function Trends({stock}) {
 
     const getTrends = async () => {
         const trendResult = await getRecommendationTrends(stock);
-        setRecommendations(trendResult);
+        setRecommendations(trendResult.reverse());
     }
 
     React.useEffect(() => {
