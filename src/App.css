@@ -58,6 +58,11 @@
   text-align: center;
 }
 
-.recharts-legend-wrapper{
-  left:-50px !important;
+
+li.left {
+  float: left;
+  clear: left;
+}
+li.right {
+  margin-left: 160px;
 }
