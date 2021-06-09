@@ -66,3 +66,11 @@ li.left {
 li.right {
   margin-left: 160px;
 }
+
+:root {
+  --amplify-font-family: 'Amazon Ember', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --amplify-primary-color: #7469ff;
+  --amplify-primary-contrast: var(--amplify-white);
+  --amplify-primary-tint: #928aff;
+  --amplify-primary-shade: #4539f0;
+}
