@@ -70,19 +70,19 @@ export default function EmotionalTraits({newsList, token}){
         );
       }
     return (
-        <div style={{ display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px",minHeight:"600px",height:"100%",display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
              <p style={{
                 marginTop: "-29px" ,
                 fontSize:"22px"}}>Emotional Traits
             </p>
-            <PieChart width={400} height={400}>
+            <PieChart width={400} height={470}>
                 <Pie
                     dataKey="value"
                     data={emotionalTraits}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
+                    innerRadius={70}
+                    outerRadius={100}
                     paddingAngle={2}
                     fill="#8884d8"
                     labelLine={false}

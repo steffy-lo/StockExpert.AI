@@ -10,19 +10,12 @@ import {
 } from '../actions';
 import {getArticle, removeTags} from '../utils';
 import Loader from '../components/Loader';
+import {Grid, Container} from '@material-ui/core';
 
 //******** MOCK DATA *****************//
 import { newsListData } from "../mock_data";
 
-//********CHARTS *******************//
-import OverallSentiment from '../widgets/OverallSentiment';
-import BehaviouralTraits from '../widgets/BehaviouralTraits';
-import EmotionalTraits from '../widgets/EmotionalTraits';
-import ArticleBreakdown from "../widgets/ArticleBreakdown";
-import IPTCTopics from "../widgets/IPTCTopics";
-import PeerComparison from "../widgets/PeerComparison";
-import SentimentHistogram from "../widgets/SentimentHistogram";
-import Trends from "../widgets/Trends";
+import Result from "../components/Result";
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
@@ -89,37 +82,7 @@ function Main({forwardedRef}) {
 
          {/****************** RESULTS *************************/}
          {showResults?
-         <div>
-             <div style={{display:"flex", justifyContent:"center"}}>
-                 <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
-             </div>
-             <div style={{display:"flex", justifyContent:"center"}}>
-                 <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
-             </div>
-
-             <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", alignItems:"flex-start"}}>
-                 <BehaviouralTraits newsList={news} token={expertAiToken}/>
-                 <EmotionalTraits newsList={news} token={expertAiToken}/>
-             </div>
-
-             <div style={{display:"flex", justifyContent:"center"}}>
-                <IPTCTopics newsList={news} token={expertAiToken}/>
-             </div>
-
-             <div style={{display:"flex", justifyContent:"center"}}>
-                 <PeerComparison stock={search} sentiment={sentimentResult}/>
-             </div>
-
-             <div style={{display:"flex", justifyContent:"center"}}>
-                 <Trends stock={search}/>
-             </div>
-
-             <div style={{ marginTop: "120px", display:"flex", justifyContent:"center"}}>
-                 <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
-             </div>
-
-         </div>
-         
+            <Result news={news} search={search} expertAiToken={expertAiToken} setSentimentResult={setSentimentResult} sentimentResult={sentimentResult}/>
          :null}
 
          

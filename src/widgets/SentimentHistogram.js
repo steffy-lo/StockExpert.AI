@@ -59,7 +59,7 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
     };
 
     return(
-        <div style={{ display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+        <div style={{backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"60px", paddingBottom:"10px", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
              <p style={{
                 marginTop: "-29px" ,
                 fontSize:"22px"}}>Sentimental Distribution

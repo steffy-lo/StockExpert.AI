@@ -33,7 +33,7 @@ function ArticleBreakdown({ newsList, token, sentiment }) {
     return (
         <>
             {articles.length > 0 ?
-                <div style={{ width: "50%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
                     <p style={{
                         fontSize:"24px"}}>
                         Articles Breakdown
@@ -41,16 +41,17 @@ function ArticleBreakdown({ newsList, token, sentiment }) {
                     <div style={{ textAlign: "left"}}>
                         {articles.slice(0).reverse().map(article =>
                             <div style={{
-                                backgroundColor: "rgba(255, 255, 255, .15)",
+                                backgroundColor:"#3e444f",
                                 backdropFilter: "blur(5px)",
                                 paddingLeft: "22px",
-                                paddingRight: "22px"
+                                paddingRight: "22px",
+                                borderRadius:"6px"
                             }}>
                                 <div style={{ display: "flex", alignItems: "center"}}>
                                     <a  href={article.url} style={{fontSize:"18px", color: "#a8a1ff", cursor: "pointer"}}>
                                         {article.title}
                                     </a>
-                                    <span style={{ marginLeft: "auto", padding: "10px", backgroundColor: getColor(article.sentiment), width: "70px", textAlign: "center"}}>
+                                    <span style={{ borderBottomRightRadius:"6px",borderBottomLeftRadius:"6px", marginLeft: "auto", backgroundColor: getColor(article.sentiment), padding:"8px 0px", minWidth: "80px", textAlign: "center"}}>
                                         {article.sentiment.toFixed(1)}
                                     </span>
                                 </div>

@@ -95,16 +95,19 @@ export default function OverallSentiment({newsList, token, setSentimentResult}) 
 
     if (mean) {
       return (
-          <>
-            <div id="chartdiv" style={{width: "400px", height: "280px", marginTop: "70px"}}/>
+          <div style={{display:"flex", flexDirection:"column"}}>
+            <div id="chartdiv" style={{backgroundColor:"#3e444f",width: "400px", height: "270px", paddingTop: "113px", borderRadius:"6px"}}/>
             <p style={{
               position: 'absolute',
-              marginTop: "160px",
-              fontSize:"22px"}}>{mean.toFixed(2)}</p>
+              marginTop: "200px",
+              marginLeft: "175px",
+              fontSize:"26px"}}>{mean.toFixed(2)}</p>
             <p style={{
               position: 'absolute',
-              fontSize:"24px"}}>Overall Sentiment</p>
-          </>
+              fontSize:"24px",
+              marginLeft: "100px",
+              marginTop: "60px"}}>Overall Sentiment</p>
+          </div>
       );
     } else {
       return (

@@ -75,7 +75,7 @@ function PeerComparison({stock, sentiment}) {
     }, [stocks, sentiment])
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"10px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
             <p style={{
                 fontSize:"22px"}}>Peer & Sector Comparison
             </p>

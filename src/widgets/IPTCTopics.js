@@ -59,7 +59,7 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
     };
 
     return (
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", padding:"10px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
             <p style={{
                 fontSize:"22px"}}>IPTC Media Topics
             </p>
