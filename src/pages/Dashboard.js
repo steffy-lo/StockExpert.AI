@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import Amplify, {Auth} from 'aws-amplify';
 import awsExports from '../aws-exports';
-import {AmplifySignOut, withAuthenticator} from '@aws-amplify/ui-react'
-import { Container } from '@material-ui/core';
+import { withAuthenticator} from '@aws-amplify/ui-react'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../App.css';
+import {Button, Menu, MenuItem} from '@material-ui/core';
+import {Redirect} from 'react-router-dom';
 
 Amplify.configure(awsExports)
 
@@ -16,14 +18,62 @@ function Dashboard() {
         setUser(user);
     }, [])
 
-    return (
-    <Container className="header">
-        <AmplifySignOut/>
-        {!!user?
-            <h3>Welcome {user.attributes.email}!</h3>:null
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    async function signOut() {
+        try {
+            await Auth.signOut().then(()=>{
+                window.location.href = "/";
+            })
+        } catch (error) {
+            console.log('Error signing out: ', error);
         }
+    }
+
+    return (
+        <>
+    <div className="dashboard-header">
+        <div>
+        <p style={{fontSize:"1.4rem", marginTop:'0.5em'}}>StockExpert<span style={{color:"#7469ff"}}>.AI</span></p>
+        </div>
+        <div>
+        {!!user?
+            <span className="dashboard-menu">
+                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                    <p style={{textTransform:"none", color:"white"}}>{user.attributes.email}</p><ExpandMoreIcon style={{ color: "white"}}/>
+                </Button>
+                <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                >
+                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                <MenuItem onClick={handleClose}>Watchlist</MenuItem>
+                <MenuItem onClick={handleClose}>History</MenuItem>
+                <MenuItem onClick={signOut}>Sign Out</MenuItem>
+                </Menu>
+            </span>:null
+        }
+
+         
         
-    </Container>
+        
+
+        </div>
+    </div>
+    
+    
+    </>
     )
 }
 

@@ -53,7 +53,7 @@ export default function Landing({forwardedRef, mainRef}){
                     </span>
                 </h1>
                 <Link className="link" to="/signin">
-                <Button style={{marginTop:"1.2rem", padding:"0.3rem 2.5rem",fontSize: "1.2rem"}}>Sign Up</Button>
+                <Button style={{marginTop:"1.2rem", padding:"0.3rem 2.5rem",fontSize: "1.2rem"}}>Sign In</Button>
                 </Link>
                 
                 

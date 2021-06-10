@@ -68,9 +68,27 @@ li.right {
 }
 
 :root {
-  --amplify-font-family: 'Amazon Ember', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --amplify-font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   --amplify-primary-color: #7469ff;
   --amplify-primary-contrast: var(--amplify-white);
   --amplify-primary-tint: #928aff;
   --amplify-primary-shade: #4539f0;
+}
+
+.dashboard-header{
+  color:white;
+  background-color:#23214b;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding:0px 14px;
+  height:60px;
+}
+
+.dashboard-menu{
+  display: flex;
+  align-items: center;
+  cursor:pointer;
 }
