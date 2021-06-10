@@ -7,8 +7,22 @@ import IPTCTopics from "../widgets/IPTCTopics";
 import PeerComparison from "../widgets/PeerComparison";
 import SentimentHistogram from "../widgets/SentimentHistogram";
 import Trends from "../widgets/Trends";
+import React, {useEffect, useState} from 'react';
+import {getExpertAiToken} from '../actions';
 
-export default function Result({news, expertAiToken, setSentimentResult, search, sentimentResult}) {
+export default function Result({news, search}) {
+    const [expertAiToken, setExpertAiToken] = useState("");
+    const [sentimentResult, setSentimentResult] = useState([]);
+
+
+    const getAndSetExpertAiToken = async () => {
+        setExpertAiToken(await getExpertAiToken());
+    }
+
+    useEffect(() => {
+        getAndSetExpertAiToken()
+    }, [])
+
     return(
         <Container>
         <Grid container spacing={5} justify="center">

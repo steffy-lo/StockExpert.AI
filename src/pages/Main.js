@@ -3,14 +3,9 @@ import '../App.css';
 import Button from '../components/Button';
 import TextField from '../components/TextField';
 import Autocomplete, {customAutoCompleteStyle} from '../components/Autocomplete';
-import {
-    getExpertAiToken,
-    getStockNews,
-    symbolLookUp
-} from '../actions';
+import {getStockNews, symbolLookUp} from '../actions';
 import {getArticle, removeTags} from '../utils';
 import Loader from '../components/Loader';
-import {Grid, Container} from '@material-ui/core';
 
 //******** MOCK DATA *****************//
 import { newsListData } from "../mock_data";
@@ -19,22 +14,11 @@ import Result from "../components/Result";
 
 function Main({forwardedRef}) {
     const [news, setNews] = useState([]);
-    const [expertAiToken, setExpertAiToken] = useState("");
     const [loading, setLoading] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [suggestions, setSuggestions] = useState([]);
     const [search, setSearch] = useState("");
-    const [sentimentResult, setSentimentResult] = useState([]);
-
-    const getAndSetExpertAiToken = async () => {
-        setExpertAiToken(await getExpertAiToken());
-    }
-
-    useEffect(() => {
-        getAndSetExpertAiToken()
-    }, [])
-
-
+    
     useEffect(() => {
         if(news.length > 0) {
             setLoading(false);
@@ -82,7 +66,7 @@ function Main({forwardedRef}) {
 
          {/****************** RESULTS *************************/}
          {showResults?
-            <Result news={news} search={search} expertAiToken={expertAiToken} setSentimentResult={setSentimentResult} sentimentResult={sentimentResult}/>
+            <Result news={news} search={search}/>
          :null}
 
          

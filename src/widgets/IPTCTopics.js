@@ -59,7 +59,7 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
     };
 
     return (
-        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", padding:"10px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", padding:"20px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
             <p style={{
                 fontSize:"22px"}}>IPTC Media Topics
             </p>
@@ -75,8 +75,8 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
                 }}
                 >
                 <CartesianGrid strokeDasharray="4 2" />
-                <XAxis dataKey="name" tick={{fontSize: 12}} />
-                <YAxis tick={{fontSize: 12}} />
+                <XAxis dataKey="name" tick={{fontSize: 12}} label={{value: 'Categories',position: 'insideBottom', offset:0 ,fontSize:"16px", fill:"white"}} />
+                <YAxis tick={{fontSize: 12}} label={{ value: 'Frequency', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}} />
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="value" fill="#82ca9d">
                     {IPTCData.map((entry, index) => (

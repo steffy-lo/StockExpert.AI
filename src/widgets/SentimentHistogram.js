@@ -50,7 +50,7 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
         if (active && payload && payload.length) {
           return (
             <div style={{backgroundColor:"white", opacity:"0.8", borderRadius:"10px", padding:"0 0.6rem"}}>
-              <p style={{fontSize:"15px", color:"black"}} className="label">{`${payload[0].payload.name} to ${parseInt(payload[0].payload.name)+1} : ${(payload[0].value)}`}</p>
+              <p style={{fontSize:"15px", color:"black"}}>{`${payload[0].payload.name} to ${parseInt(payload[0].payload.name)+1} : ${(payload[0].value)}`}</p>
             </div>
           );
         }
@@ -59,7 +59,7 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
     };
 
     return(
-        <div style={{backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"60px", paddingBottom:"10px", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div style={{backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"60px", paddingBottom:"20px", display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
              <p style={{
                 marginTop: "-29px" ,
                 fontSize:"22px"}}>Sentimental Distribution
@@ -77,8 +77,8 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
                 }}
                 >
                 <CartesianGrid strokeDasharray="4 2" />
-                <XAxis dataKey="name" tick={{fontSize: 12}} />
-                <YAxis tick={{fontSize: 12}} />
+                <XAxis dataKey="name" tick={{fontSize: 12}} label={{value: 'Sentiment',position: 'insideBottom', offset:0 ,fontSize:"16px", fill:"white"}} />
+                <YAxis tick={{fontSize: 12}}  label={{ value: 'Frequency', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}}/>
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="value" fill="#82ca9d">
                     {data.map((entry, index) => (
