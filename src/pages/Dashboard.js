@@ -5,7 +5,6 @@ import { withAuthenticator} from '@aws-amplify/ui-react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../App.css';
 import {Button, Menu, MenuItem} from '@material-ui/core';
-import {Redirect} from 'react-router-dom';
 
 Amplify.configure(awsExports)
 
@@ -64,10 +63,6 @@ function Dashboard() {
                 </Menu>
             </span>:null
         }
-
-         
-        
-        
 
         </div>
     </div>
