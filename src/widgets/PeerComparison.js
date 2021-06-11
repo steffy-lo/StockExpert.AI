@@ -75,7 +75,7 @@ function PeerComparison({stock, sentiment}) {
     }, [stocks, sentiment])
 
     return (
-        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"10px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"10px", paddingBottom: "20px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop:"30px"}}>
             <p style={{
                 fontSize:"22px"}}>Peer & Sector Comparison
             </p>
@@ -91,8 +91,8 @@ function PeerComparison({stock, sentiment}) {
                 }}
             >
                 <CartesianGrid strokeDasharray="4 2" />
-                <XAxis dataKey="symbol" tick={{fontSize: 12}} />
-                <YAxis tick={{fontSize: 12}} />
+                <XAxis dataKey="symbol" tick={{fontSize: 12}} label={{value: 'Companies', position: 'insideBottom', offset:-1, fontSize:"16px", fill:"white"}} />
+                <YAxis tick={{fontSize: 12}} label={{value: 'Sentiment', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}}/>
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="overall" fill="#FFBB28"/>
                 <Bar dataKey="positivity" fill="#00C49F"/>

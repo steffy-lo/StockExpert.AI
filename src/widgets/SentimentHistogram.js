@@ -78,7 +78,7 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
                 >
                 <CartesianGrid strokeDasharray="4 2" />
                 <XAxis dataKey="name" tick={{fontSize: 12}} label={{value: 'Sentiment',position: 'insideBottom', offset:0 ,fontSize:"16px", fill:"white"}} />
-                <YAxis tick={{fontSize: 12}}  label={{ value: 'Frequency', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}}/>
+                <YAxis tick={{fontSize: 12}}  label={{ value: 'Count', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}}/>
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="value" fill="#82ca9d">
                     {data.map((entry, index) => (

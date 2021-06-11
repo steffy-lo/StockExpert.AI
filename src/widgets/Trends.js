@@ -33,7 +33,7 @@ function Trends({stock}) {
     };
 
     return (
-        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"10px",display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div style={{ backgroundColor:"#3e444f", borderRadius:"6px", paddingTop:"10px", paddingBottom: "10px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
             <p style={{
                 fontSize:"22px"}}>Recommendation Trends
             </p>
@@ -49,8 +49,8 @@ function Trends({stock}) {
                 }}
             >
                 <CartesianGrid strokeDasharray="4 2" />
-                <XAxis dataKey="period" tick={{fontSize: 12}} />
-                <YAxis tick={{fontSize: 12}} />
+                <XAxis dataKey="period" tick={{fontSize: 12}} label={{value: 'Period', position: 'insideBottom', offset: 0 ,fontSize:"16px", fill:"white"}}/>
+                <YAxis tick={{fontSize: 12}} label={{ value: 'Count', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}}/>
                 <Tooltip content={CustomTooltip}/>
                 <Line type="monotone" dataKey="hold" stroke="#FFBB28"/>
                 <Line type="monotone" dataKey="buy" stroke="#00C49F"/>
