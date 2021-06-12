@@ -50,7 +50,7 @@ export default function Result({news, search}) {
                    <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
                </Grid>
            </Grid>
-           <Grid container justify="center" spacing={5} style={{marginTop:"22px"}}>
+           <Grid container justify="center" spacing={5} style={{marginTop:"22px", marginBottom: "40px"}}>
                <Grid item lg={5} xs={12}>
                    <PeerComparison stock={search} sentiment={sentimentResult}/>
                </Grid>
