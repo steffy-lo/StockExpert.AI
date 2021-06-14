@@ -8009,6 +8009,459 @@ export const sentimentData = [
     }
 ]
 
+export const recommendationTrends = [
+    {
+        "buy": 19,
+        "hold": 14,
+        "period": "2018-04-01",
+        "sell": 0,
+        "strongBuy": 13,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 19,
+        "hold": 15,
+        "period": "2018-05-01",
+        "sell": 0,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 17,
+        "hold": 16,
+        "period": "2018-06-01",
+        "sell": 0,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 16,
+        "hold": 16,
+        "period": "2018-07-01",
+        "sell": 0,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 16,
+        "hold": 15,
+        "period": "2018-08-01",
+        "sell": 0,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 15,
+        "hold": 15,
+        "period": "2018-09-01",
+        "sell": 0,
+        "strongBuy": 17,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 16,
+        "hold": 15,
+        "period": "2018-10-01",
+        "sell": 0,
+        "strongBuy": 17,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 16,
+        "hold": 14,
+        "period": "2018-11-01",
+        "sell": 0,
+        "strongBuy": 19,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 14,
+        "hold": 17,
+        "period": "2018-12-01",
+        "sell": 0,
+        "strongBuy": 16,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 14,
+        "hold": 18,
+        "period": "2019-01-01",
+        "sell": 0,
+        "strongBuy": 17,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 10,
+        "hold": 22,
+        "period": "2019-02-01",
+        "sell": 1,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 10,
+        "hold": 22,
+        "period": "2019-03-01",
+        "sell": 1,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 10,
+        "hold": 22,
+        "period": "2019-04-01",
+        "sell": 1,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 10,
+        "hold": 22,
+        "period": "2019-05-01",
+        "sell": 1,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 10,
+        "hold": 20,
+        "period": "2019-06-01",
+        "sell": 2,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-07-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-08-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-09-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-10-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-11-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2019-12-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-01-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-02-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-03-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-04-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 20,
+        "hold": 8,
+        "period": "2020-05-01",
+        "sell": 3,
+        "strongBuy": 14,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-06-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-07-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 13,
+        "hold": 19,
+        "period": "2020-08-01",
+        "sell": 3,
+        "strongBuy": 15,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 19,
+        "hold": 10,
+        "period": "2020-09-01",
+        "sell": 2,
+        "strongBuy": 13,
+        "strongSell": 2,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 19,
+        "hold": 10,
+        "period": "2020-10-01",
+        "sell": 2,
+        "strongBuy": 13,
+        "strongSell": 2,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 21,
+        "hold": 10,
+        "period": "2020-11-01",
+        "sell": 1,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 22,
+        "hold": 9,
+        "period": "2020-12-01",
+        "sell": 1,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 24,
+        "hold": 7,
+        "period": "2021-01-01",
+        "sell": 0,
+        "strongBuy": 13,
+        "strongSell": 0,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 23,
+        "hold": 8,
+        "period": "2021-02-01",
+        "sell": 1,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 23,
+        "hold": 8,
+        "period": "2021-03-01",
+        "sell": 1,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 25,
+        "hold": 7,
+        "period": "2021-04-01",
+        "sell": 1,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 24,
+        "hold": 8,
+        "period": "2021-05-01",
+        "sell": 0,
+        "strongBuy": 13,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    },
+    {
+        "buy": 24,
+        "hold": 8,
+        "period": "2021-06-01",
+        "sell": 0,
+        "strongBuy": 14,
+        "strongSell": 1,
+        "symbol": "AAPL"
+    }
+]
+
+export const peerSentiment = [
+    {
+        "symbol": "Sector",
+        "negativity": -3.1338461538461524,
+        "positivity": 2.857731049213199,
+        "overall": -0.2761151046329533
+    },
+    {
+        "buzz": {
+            "articlesInLastWeek": 291,
+            "buzz": 1.1422,
+            "weeklyAverage": 254.75
+        },
+        "companyNewsScore": 0.6923,
+        "sectorAverageBullishPercent": 0.6742,
+        "sectorAverageNewsScore": 0.5422,
+        "sentiment": {
+            "bearishPercent": 0.2353,
+            "bullishPercent": 0.7647
+        },
+        "symbol": "AAPL",
+        "negativity": -2.2633333333333328,
+        "positivity": 3.2413333333333334,
+        "overall": 0.9780000000000006
+    },
+    {
+        "buzz": {
+            "articlesInLastWeek": 4,
+            "buzz": 0.2461,
+            "weeklyAverage": 16.25
+        },
+        "companyNewsScore": 0.5,
+        "sectorAverageBullishPercent": 0.6742,
+        "sectorAverageNewsScore": 0.5422,
+        "sentiment": {
+            "bearishPercent": 0,
+            "bullishPercent": 1
+        },
+        "symbol": "DELL",
+        "negativity": 0,
+        "positivity": 4.238699272045682,
+        "overall": 4.238699272045682
+    },
+    {
+        "buzz": {
+            "articlesInLastWeek": 10,
+            "buzz": 0.4,
+            "weeklyAverage": 25
+        },
+        "companyNewsScore": 0.5,
+        "sectorAverageBullishPercent": 0.6742,
+        "sectorAverageNewsScore": 0.5422,
+        "sentiment": {
+            "bearishPercent": 0,
+            "bullishPercent": 1
+        },
+        "symbol": "HPQ",
+        "negativity": 0,
+        "positivity": 4.238699272045682,
+        "overall": 4.238699272045682
+    },
+    {
+        "buzz": {
+            "articlesInLastWeek": 10,
+            "buzz": 0.8888,
+            "weeklyAverage": 11.25
+        },
+        "companyNewsScore": 0.5,
+        "sectorAverageBullishPercent": 0.6742,
+        "sectorAverageNewsScore": 0.5422,
+        "sentiment": {
+            "bearishPercent": 0,
+            "bullishPercent": 1
+        },
+        "symbol": "WDC",
+        "negativity": 0,
+        "positivity": 4.238699272045682,
+        "overall": 4.238699272045682
+    },
+    {
+        "buzz": {
+            "articlesInLastWeek": 6,
+            "buzz": 0.5853,
+            "weeklyAverage": 10.25
+        },
+        "companyNewsScore": 0.7777,
+        "sectorAverageBullishPercent": 0.6742,
+        "sectorAverageNewsScore": 0.5422,
+        "sentiment": {
+            "bearishPercent": 0,
+            "bullishPercent": 1
+        },
+        "symbol": "HPE",
+        "negativity": 0,
+        "positivity": 4.238699272045682,
+        "overall": 4.238699272045682
+    }
+]
+
 export const newsListData = [
     {
         "source": {
@@ -8379,24 +8832,9 @@ export const articleBreakdownData = [
         "url": "https://www.cnn.com/2021/05/03/tech/apple-vs-epic-trial-sweeney/index.html",
         "sentiment": -7.3,
         "sentences": [
-            {
-                "value": "Epic Games and Apple spar over consoles and walled gardens on opening day of trial By Rishi Iyengar, CNN Business Updated 2223 GMT (0623 HKT) May 4, 2021 JUST WATCHED Fortnite is trolling Apple with this spoof of its iconic '1984' commercial Replay More Videos ... MUST WATCH (16 Videos) Fortnite is trolling Apple with this spoof of its iconic '1984' commercial Robot manicure really \"nails it\" Disney uses tech to turn guests into Spider-Man's helpers in new ride Novogratz: Sports will make NFTs broadly accessible Delta Air Lines prepares \"connected cabins\" for post-pandemic flights Florida governor signs bill targeting social media platforms This company is making drone delivery a reality Inside the logistics system behind Alibaba Viral \"Charlie bit my finger\" video to be taken down.",
-                "score": 7.5,
-                "start": 2,
-                "end": 1024
-            },
-            {
-                "value": "Users of all those platforms can play Fortnite against each other, and largely make in-app purchases on one platform to use on another, Apple argued.",
-                "score": 6.9,
-                "start": 4708,
-                "end": 4857
-            },
-            {
-                "value": "Fortnite's removal from the App Store prompted Epic to sue Apple.",
-                "score": 5.3,
-                "start": 2247,
-                "end": 2312
-            }
+            "Epic Games and Apple spar over consoles and walled gardens on opening day of trial By Rishi Iyengar, CNN Business Updated 2223 GMT (0623 HKT) May 4, 2021 JUST WATCHED Fortnite is trolling Apple with this spoof of its iconic '1984' commercial Replay More Videos ... MUST WATCH (16 Videos) Fortnite is trolling Apple with this spoof of its iconic '1984' commercial Robot manicure really \"nails it\" Disney uses tech to turn guests into Spider-Man's helpers in new ride Novogratz: Sports will make NFTs broadly accessible Delta Air Lines prepares \"connected cabins\" for post-pandemic flights Florida governor signs bill targeting social media platforms This company is making drone delivery a reality Inside the logistics system behind Alibaba Viral \"Charlie bit my finger\" video to be taken down.",
+            "Users of all those platforms can play Fortnite against each other, and largely make in-app purchases on one platform to use on another, Apple argued.",
+            "Fortnite's removal from the App Store prompted Epic to sue Apple.",
         ]
     },
     {
@@ -8404,24 +8842,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/top-consumer-discretionary-stocks-to-buy-now-4-to-know-2021-06-02",
         "sentiment": -2,
         "sentences": [
-            {
-                "value": "Among the various sectors in the stock market, consumer discretionary stocks appear to be gaining momentum as investors anticipate booming economic growth through the rest of the year.",
-                "score": 6.59,
-                "start": 71,
-                "end": 257
-            },
-            {
-                "value": "Are These The Best Consumer Discretionary Stocks To Buy Right Now?",
-                "score": 4.4,
-                "start": 2,
-                "end": 68
-            },
-            {
-                "value": "Top Consumer Discretionary Stocks To Watch Pinduoduo Inc (NASDAQ: PDD) McDonald's Corp (NYSE: MCD) Starbucks Corporation (NASDAQ: SBUX) Tenneco Inc (NYSE: TEN) Pinduoduo Inc Pinduoduo is a Chinese e-commerce platform operator.",
-                "score": 4.09,
-                "start": 1446,
-                "end": 1699
-            }
+            "Among the various sectors in the stock market, consumer discretionary stocks appear to be gaining momentum as investors anticipate booming economic growth through the rest of the year.",
+            "Are These The Best Consumer Discretionary Stocks To Buy Right Now?",
+            "Top Consumer Discretionary Stocks To Watch Pinduoduo Inc (NASDAQ: PDD) McDonald's Corp (NYSE: MCD) Starbucks Corporation (NASDAQ: SBUX) Tenneco Inc (NYSE: TEN) Pinduoduo Inc Pinduoduo is a Chinese e-commerce platform operator.",
         ]
     },
     {
@@ -8429,24 +8852,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/best-tech-stocks-to-buy-right-now-4-to-watch-2021-05-04",
         "sentiment": -1.89,
         "sentences": [
-            {
-                "value": "Top Tech Stocks To Consider Buying In The Stock Market Now Amidst all the hot earnings figures over the past few weeks, tech stocks continue to attract attention, nonetheless.",
-                "score": 8.39,
-                "start": 2,
-                "end": 181
-            },
-            {
-                "value": "Because of this, tech stocks are still among the most active stocks in the stock market today.",
-                "score": 7.09,
-                "start": 182,
-                "end": 282
-            },
-            {
-                "value": "Top Tech Stocks To Buy [Or Sell] This Week PayPal Holdings Inc. (NASDAQ: PYPL) Marathon Digital Holdings Inc. (NASDAQ: MARA) Snowflake Inc. (NYSE: SNOW) Upwork Inc. (NASDAQ: UPWK) PayPal Holdings Inc. PayPal is a tech platform and digital payments company that enables mobile and digital payments on behalf of consumers and merchants.",
-                "score": 3.7,
-                "start": 1636,
-                "end": 1997
-            }
+           "Top Tech Stocks To Consider Buying In The Stock Market Now Amidst all the hot earnings figures over the past few weeks, tech stocks continue to attract attention, nonetheless.",
+           "Because of this, tech stocks are still among the most active stocks in the stock market today.",
+           "Top Tech Stocks To Buy [Or Sell] This Week PayPal Holdings Inc. (NASDAQ: PYPL) Marathon Digital Holdings Inc. (NASDAQ: MARA) Snowflake Inc. (NYSE: SNOW) Upwork Inc. (NASDAQ: UPWK) PayPal Holdings Inc. PayPal is a tech platform and digital payments company that enables mobile and digital payments on behalf of consumers and merchants.",
         ]
     },
     {
@@ -8454,24 +8862,9 @@ export const articleBreakdownData = [
         "url": "https://www.businessinsider.com/steve-wozniak-sued-over-alleged-theft-of-business-idea-2021-5",
         "sentiment": -0.69,
         "sentences": [
-            {
-                "value": "Ralph Reilly approached Wozniak about making a branded tech school in 2010 but it didn't pan out.",
-                "score": 5.69,
-                "start": 102,
-                "end": 199
-            },
-            {
-                "value": "Apple cofounder Steve Wozniak has been sued over the theft of a business idea from a professor.",
-                "score": 5,
-                "start": 5,
-                "end": 100
-            },
-            {
-                "value": "Reilly had obtained copyright protection for the website mock-up, and it is now at the heart of the case - even as Wozniak's lawyers counter that there's no evidence that Wozniak ever even looked at it.",
-                "score": 4.4,
-                "start": 8957,
-                "end": 9159
-            }
+            "Ralph Reilly approached Wozniak about making a branded tech school in 2010 but it didn't pan out.",
+            "Apple cofounder Steve Wozniak has been sued over the theft of a business idea from a professor.",
+            "Reilly had obtained copyright protection for the website mock-up, and it is now at the heart of the case - even as Wozniak's lawyers counter that there's no evidence that Wozniak ever even looked at it.",
         ]
     },
     {
@@ -8479,24 +8872,9 @@ export const articleBreakdownData = [
         "url": "https://www.businessinsider.com/viruses-on-mac-computers-at-unacceptable-level-apple-says-2021-5",
         "sentiment": -0.3,
         "sentences": [
-            {
-                "value": "Apple's computers are getting slammed with malware and viruses, according to Apple.",
-                "score": 12.19,
-                "start": 5,
-                "end": 88
-            },
-            {
-                "value": "\"It's an endless game of whack-a-mole\", Apple senior VP Craig Federighi said in court on Wednesday.",
-                "score": 9.39,
-                "start": 90,
-                "end": 189
-            },
-            {
-                "value": "Apple Apple's computers are \"like a car\", he said, and that means users can take it off-road or wherever they'd like - for better or worse - whereas the iPhone and iPad operating system, iOS, needs to be usable by children and even babies.",
-                "score": 8.19,
-                "start": 1129,
-                "end": 1370
-            }
+            "Apple's computers are getting slammed with malware and viruses, according to Apple.",
+            "\"It's an endless game of whack-a-mole\", Apple senior VP Craig Federighi said in court on Wednesday.",
+             "Apple Apple's computers are \"like a car\", he said, and that means users can take it off-road or wherever they'd like - for better or worse - whereas the iPhone and iPad operating system, iOS, needs to be usable by children and even babies.",
         ]
     },
     {
@@ -8504,24 +8882,9 @@ export const articleBreakdownData = [
         "url": "https://www.businessinsider.com/apple-china-suppliers-uyghur-muslims-forced-labor-report-2021-5",
         "sentiment": 0.69,
         "sentences": [
-            {
-                "value": "Apple suppliers have used thousands of Uyghur Muslims in forced labor programs in China, The Information reports.",
-                "score": 15.39,
-                "start": 5,
-                "end": 118
-            },
-            {
-                "value": "Seven of Apple's suppliers were found to be linked to suspected forced labor of Uyghur Muslims and other persecuted groups sourced from the Xinjiang region, according to an investigation by The Information.",
-                "score": 6.59,
-                "start": 345,
-                "end": 552
-            },
-            {
-                "value": "Apple has previously denied using suppliers that rely on the forced labor of Uyghurs, a Muslim minority group that has faced persecution in China.",
-                "score": 6.3,
-                "start": 555,
-                "end": 701
-            }
+            "Apple suppliers have used thousands of Uyghur Muslims in forced labor programs in China, The Information reports.",
+            "Seven of Apple's suppliers were found to be linked to suspected forced labor of Uyghur Muslims and other persecuted groups sourced from the Xinjiang region, according to an investigation by The Information.",
+            "Apple has previously denied using suppliers that rely on the forced labor of Uyghurs, a Muslim minority group that has faced persecution in China.",
         ]
     },
     {
@@ -8529,24 +8892,9 @@ export const articleBreakdownData = [
         "url": "https://markets.businessinsider.com/news/stocks/stock-market-news-today-dow-hits-record-high-on-weekly-jobs-data-2021-5-1030398590",
         "sentiment": 0.8,
         "sentences": [
-            {
-                "value": "Home Depot, P&G and Apple were all up, helping the Dow push to fresh highs.",
-                "score": 11.69,
-                "start": 240,
-                "end": 319
-            },
-            {
-                "value": "Here's where US indexes stood at 4:00 p.m. on Thursday: S&P 500: 4,201.56, up 0.82% Dow Jones Industrial Average: 34,546.56, up 0.92% (316.22 points) Nasdaq Composite: 13,632.84, up 0.37% Apple and Microsoft shrugged off earlier losses, aiding the Dow Jones Industrial Average.",
-                "score": 11.1,
-                "start": 1291,
-                "end": 1588
-            },
-            {
-                "value": "Brendan McDermid/Reuters The Dow Jones Industrial Average pushed to a record high on Thursday.",
-                "score": 10,
-                "start": 59,
-                "end": 155
-            }
+            "Home Depot, P&G and Apple were all up, helping the Dow push to fresh highs.",
+            "Here's where US indexes stood at 4:00 p.m. on Thursday: S&P 500: 4,201.56, up 0.82% Dow Jones Industrial Average: 34,546.56, up 0.92% (316.22 points) Nasdaq Composite: 13,632.84, up 0.37% Apple and Microsoft shrugged off earlier losses, aiding the Dow Jones Industrial Average.",
+            "Brendan McDermid/Reuters The Dow Jones Industrial Average pushed to a record high on Thursday.",
         ]
     },
     {
@@ -8554,24 +8902,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/robinhood-stocks-to-watch-right-now-2021-05-18",
         "sentiment": 1.1,
         "sentences": [
-            {
-                "value": "Top Robinhood Stocks That Are Trending In The Stock Market Now Finding the best stocks to buy on Robinhood has become extremely popular among all types of investors.",
-                "score": 12.19,
-                "start": 2,
-                "end": 171
-            },
-            {
-                "value": "At its core, Robinhood allows investors to trade stocks with no fees at all.",
-                "score": 8.1,
-                "start": 172,
-                "end": 248
-            },
-            {
-                "value": "Considering all these factors, it should not come as no surprise why AMC stock is one of the top Robinhood stocks to trade.",
-                "score": 3.5,
-                "start": 1018,
-                "end": 1143
-            }
+            "Top Robinhood Stocks That Are Trending In The Stock Market Now Finding the best stocks to buy on Robinhood has become extremely popular among all types of investors.",
+             "At its core, Robinhood allows investors to trade stocks with no fees at all.",
+             "Considering all these factors, it should not come as no surprise why AMC stock is one of the top Robinhood stocks to trade.",
         ]
     },
     {
@@ -8579,24 +8912,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/hot-stocks-to-buy-this-week-4-tech-stocks-to-watch-2021-05-17",
         "sentiment": 2.09,
         "sentences": [
-            {
-                "value": "[Read More] Top Consumer Staples Stocks To Watch In May 2021 Cisco Systems Inc  Next up, we have the multinational tech company, Cisco.",
-                "score": 4.9,
-                "start": 2852,
-                "end": 2994
-            },
-            {
-                "value": "4 Top Tech Stocks To Watch Right Now Investors in tech stocks have not had the best time in the stock market lately.",
-                "score": 4.59,
-                "start": 2,
-                "end": 124
-            },
-            {
-                "value": "Best Tech Stocks To Buy [Or Avoid] Right Now Apple Inc (NASDAQ: AAPL) Cisco Systems Inc (NASDAQ: CSCO) Snowflake Inc (NYSE: SNOW) Analog Devices, Inc (NASDAQ: ADI) Apple Inc First, to make the list, we have the tech titan that requires no introduction, Apple.",
-                "score": 4.4,
-                "start": 1261,
-                "end": 1548
-            }
+            "[Read More] Top Consumer Staples Stocks To Watch In May 2021 Cisco Systems Inc  Next up, we have the multinational tech company, Cisco.",
+            "4 Top Tech Stocks To Watch Right Now Investors in tech stocks have not had the best time in the stock market lately.",
+            "Best Tech Stocks To Buy [Or Avoid] Right Now Apple Inc (NASDAQ: AAPL) Cisco Systems Inc (NASDAQ: CSCO) Snowflake Inc (NYSE: SNOW) Analog Devices, Inc (NASDAQ: ADI) Apple Inc First, to make the list, we have the tech titan that requires no introduction, Apple.",
         ]
     },
     {
@@ -8604,24 +8922,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/best-tech-stocks-to-buy-now-4-names-to-know-2021-05-06",
         "sentiment": 2.4,
         "sentences": [
-            {
-                "value": "Top Tech Stocks To Watch In The Stock Market Today  Investing in tech stocks in the stock market has not been as smooth sailing as it was last year.",
-                "score": 7,
-                "start": 2,
-                "end": 154
-            },
-            {
-                "value": "The sector comprises businesses that sell goods and services in industries such as information technology, software, computers, and many more.",
-                "score": 4.19,
-                "start": 155,
-                "end": 297
-            },
-            {
-                "value": "4 Renewable Energy Stocks To Consider Arista Networks Inc Arista Networks is a supplier of cloud networking solutions.",
-                "score": 3.59,
-                "start": 4368,
-                "end": 4493
-            }
+            "Top Tech Stocks To Watch In The Stock Market Today  Investing in tech stocks in the stock market has not been as smooth sailing as it was last year.",
+             "The sector comprises businesses that sell goods and services in industries such as information technology, software, computers, and many more.",
+             "4 Renewable Energy Stocks To Consider Arista Networks Inc Arista Networks is a supplier of cloud networking solutions.",
         ]
     },
     {
@@ -8629,24 +8932,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/4-artificial-intelligence-stocks-to-watch-right-now-2021-05-14",
         "sentiment": 3.4,
         "sentences": [
-            {
-                "value": "Top Artificial Intelligence Stocks To Watch In May 2021 As tech stocks continue to recover from this week's losses, investors may be looking towards Artificial Intelligence (AI) stocks.",
-                "score": 10.5,
-                "start": 2,
-                "end": 195
-            },
-            {
-                "value": "4 IPO Stocks To Watch IBM Corporation IBM is a multinational artificial intelligence company that is headquartered in New York.",
-                "score": 4.09,
-                "start": 4435,
-                "end": 4568
-            },
-            {
-                "value": "4 Cruise Line Stocks Making Headlines Nvidia Corporation Nvidia is an AI company that is at the forefront of the industry.",
-                "score": 3.79,
-                "start": 2957,
-                "end": 3084
-            }
+            "Top Artificial Intelligence Stocks To Watch In May 2021 As tech stocks continue to recover from this week's losses, investors may be looking towards Artificial Intelligence (AI) stocks.",
+            "4 IPO Stocks To Watch IBM Corporation IBM is a multinational artificial intelligence company that is headquartered in New York.",
+            "4 Cruise Line Stocks Making Headlines Nvidia Corporation Nvidia is an AI company that is at the forefront of the industry.",
         ]
     },
     {
@@ -8654,24 +8942,9 @@ export const articleBreakdownData = [
         "url": "https://www.marketbeat.com/originals/jabil-circuit-stock-is-a-play-on-secular-growth-trends/?utm_source=entrepreneurcom&amp;amp;utm_medium=entrepreneurcom",
         "sentiment": 3.59,
         "sentences": [
-            {
-                "value": "Jabil Circuit Stock is a Play on Secular Growth Trends Share Tuesday, May 4, 2021 | Jea Yu Electronics manufacturing services and solutions provider Jabil Circuit (NYSE: JBL) stock has been on a year since its pandemic bottom formed in March 2020.",
-                "score": 10.5,
-                "start": 8,
-                "end": 287
-            },
-            {
-                "value": "7 Low-Priced Dividend Stocks Under $10 The recent trading activity surrounding low-priced stocks like GameStop (NYSE:GME) is a reminder to investors of the high-risk nature involved with these stocks.",
-                "score": 6.4,
-                "start": 5310,
-                "end": 5512
-            },
-            {
-                "value": "Advanced Stock Screeners and Research Tools Identify stocks that meet your criteria using seven unique stock screeners.",
-                "score": 4.5,
-                "start": 9068,
-                "end": 9188
-            }
+            "Jabil Circuit Stock is a Play on Secular Growth Trends Share Tuesday, May 4, 2021 | Jea Yu Electronics manufacturing services and solutions provider Jabil Circuit (NYSE: JBL) stock has been on a year since its pandemic bottom formed in March 2020.",
+            "7 Low-Priced Dividend Stocks Under $10 The recent trading activity surrounding low-priced stocks like GameStop (NYSE:GME) is a reminder to investors of the high-risk nature involved with these stocks.",
+            "Advanced Stock Screeners and Research Tools Identify stocks that meet your criteria using seven unique stock screeners.",
         ]
     },
     {
@@ -8679,24 +8952,9 @@ export const articleBreakdownData = [
         "url": "https://www.marketbeat.com/originals/bloomin-brands-business-blossoms-but-shares-down-in-may/?utm_source=entrepreneurcom&amp;amp;utm_medium=entrepreneurcom",
         "sentiment": 3.9,
         "sentences": [
-            {
-                "value": "Bloomin' Brands Business Blossoms, But Shares Down In May Share Thursday, May 13, 2021 | Kate Stalter Restaurant chain operator Bloomin' Brands (NASDAQ: BLMN) brands is consolidating below its April 30 high of $32.81, which it reached a day after reporting first-quarter results.",
-                "score": 13.3,
-                "start": 8,
-                "end": 319
-            },
-            {
-                "value": "The company's brands include Outback Steakhouse, Fleming's, Bonefish Grill, Aussie Grill and Carrabba's Italian Grill. Despite taking a drubbing during the pandemic, like all restaurants, Bloomin' Brands has been a growth-stock success story.",
-                "score": 5.8,
-                "start": 321,
-                "end": 565
-            },
-            {
-                "value": "Start Your Risk-Free Trial Subscription Here Share Thursday, May 13, 2021 | Kate Stalter Restaurant chain operator Bloomin' Brands (NASDAQ: BLMN) brands is consolidating below its April 30 high of $32.81, which it reached a day after reporting first-quarter results.",
-                "score": 3.7,
-                "start": 8395,
-                "end": 8696
-            }
+            "Bloomin' Brands Business Blossoms, But Shares Down In May Share Thursday, May 13, 2021 | Kate Stalter Restaurant chain operator Bloomin' Brands (NASDAQ: BLMN) brands is consolidating below its April 30 high of $32.81, which it reached a day after reporting first-quarter results.",
+            "The company's brands include Outback Steakhouse, Fleming's, Bonefish Grill, Aussie Grill and Carrabba's Italian Grill. Despite taking a drubbing during the pandemic, like all restaurants, Bloomin' Brands has been a growth-stock success story.",
+            "Start Your Risk-Free Trial Subscription Here Share Thursday, May 13, 2021 | Kate Stalter Restaurant chain operator Bloomin' Brands (NASDAQ: BLMN) brands is consolidating below its April 30 high of $32.81, which it reached a day after reporting first-quarter results.",
         ]
     },
     {
@@ -8704,24 +8962,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/top-stocks-to-buy-now-semiconductor-stocks-to-watch-2021-05-28",
         "sentiment": 4.8,
         "sentences": [
-            {
-                "value": "Why Are Investors Eyeing These Semiconductor Stocks Right Now?",
-                "score": 7.19,
-                "start": 2,
-                "end": 64
-            },
-            {
-                "value": "Semiconductor stocks performed extremely well last year in the stock market, and analysts are expecting more great things in the space in 2021.",
-                "score": 7.19,
-                "start": 67,
-                "end": 212
-            },
-            {
-                "value": "Semiconductor Stocks To Buy [Or Sell] Today NVIDIA Corporation (NASDAQ: NVDA) Taiwan Semiconductor Manufacturing Co (NYSE: TSM) Intel Corporation (NASDAQ: INTC) ON Semiconductor Corp (NASDAQ: ON) NVIDIA First up, we have semiconductor giant Nvidia.",
-                "score": 4,
-                "start": 1457,
-                "end": 1737
-            }
+            "Why Are Investors Eyeing These Semiconductor Stocks Right Now?",
+            "Semiconductor stocks performed extremely well last year in the stock market, and analysts are expecting more great things in the space in 2021.",
+            "Semiconductor Stocks To Buy [Or Sell] Today NVIDIA Corporation (NASDAQ: NVDA) Taiwan Semiconductor Manufacturing Co (NYSE: TSM) Intel Corporation (NASDAQ: INTC) ON Semiconductor Corp (NASDAQ: ON) NVIDIA First up, we have semiconductor giant Nvidia.",
         ]
     },
     {
@@ -8729,24 +8972,9 @@ export const articleBreakdownData = [
         "url": "https://stockmarket.com/featured/best-communication-stocks-to-watch-right-now-2021-05-10",
         "sentiment": 4.9,
         "sentences": [
-            {
-                "value": "These Communication Stocks Are Trending In The Stock Market This Week In a world where social distancing is a necessity and countries around the world moving in and out of lockdown, alternative ways of communication become even more important.",
-                "score": 6,
-                "start": 2,
-                "end": 247
-            },
-            {
-                "value": "This is where communication stocks come into the limelight in the stock market.",
-                "score": 4.59,
-                "start": 248,
-                "end": 331
-            },
-            {
-                "value": "Hence this would put Roku in a strong position for growth regardless of which streaming company comes out on top. It is no secret that ROKU stock has been performing relatively well for the past year.",
-                "score": 4.09,
-                "start": 3714,
-                "end": 3919
-            }
+            "These Communication Stocks Are Trending In The Stock Market This Week In a world where social distancing is a necessity and countries around the world moving in and out of lockdown, alternative ways of communication become even more important.",
+            "This is where communication stocks come into the limelight in the stock market.",
+            "Hence this would put Roku in a strong position for growth regardless of which streaming company comes out on top. It is no secret that ROKU stock has been performing relatively well for the past year.",
         ]
     }
 ]

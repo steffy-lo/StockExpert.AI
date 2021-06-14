@@ -17,7 +17,7 @@ function ArticleBreakdown({ newsList, token, sentiment }) {
         //             title: newsList[i].title,
         //             url: newsList[i].url,
         //             sentiment: sentiment[i].overall,
-        //             sentences: mainSentences
+        //             sentences: mainSentences.map(sentence => sentence.value)
         //         });
         //     }
         // }
@@ -57,7 +57,7 @@ function ArticleBreakdown({ newsList, token, sentiment }) {
                                 </div>
                                 <ul style={{ marginTop: "10px" }}>
                                     {article.sentences.map(sentence =>
-                                    <li style={{fontSize:"16px"}}><p>{sentence.value}</p></li>)}
+                                    <li style={{fontSize:"16px"}}><p>{sentence}</p></li>)}
                                 </ul>
                                 <hr style={{borderColor: "#7469ff"}}/>
                             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { LineChart, Line, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {getRecommendationTrends} from "../actions";
+import {recommendationTrends} from "../mock_data";
 
 function Trends({stock}) {
 
@@ -12,7 +13,8 @@ function Trends({stock}) {
     }
 
     React.useEffect(() => {
-        getTrends()
+        // getTrends()
+        setRecommendations(recommendationTrends)
     }, [stock])
 
     const CustomTooltip = ({ active, payload }) => {
