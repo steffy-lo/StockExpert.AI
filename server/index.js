@@ -14,10 +14,19 @@ const { Result } = require("./models/Result");
 
 app.post('/user', (req, res) => {
     const user = new User(req.body)
-    user.save().then(result => {
-        res.send(result)
-    }, error => {
-        res.status(400).send(error)
+    User.findOne({username: user.username}).then((existingUser) => {
+        if (!existingUser) {
+            user.save().then(result => {
+                res.send(result)
+            }, error => {
+                res.status(400).send(error)
+            })
+        } else {
+            res.status(400).send("User already exist!")
+        }
+    }).catch((error) => {
+        console.log(error)
+        res.status(500).send(error)  // server error
     })
 })
 
@@ -30,6 +39,7 @@ app.get('/user/:username', (req, res) => {
             res.send(user)
         }
     }).catch((error) => {
+        console.log(error)
         res.status(500).send(error)  // server error
     })
 });
@@ -46,6 +56,7 @@ app.patch('/user', (req, res) => {
                 res.send(user)
             }
         }).catch((error) => {
+            console.log(error)
             res.status(400).send() // bad request for changing the user.
         })
 
@@ -56,6 +67,7 @@ app.post('/result', (req, res) => {
     result.save().then(result => {
         res.send(result)
     }, error => {
+        console.log(error)
         res.status(400).send(error)
     })
 })

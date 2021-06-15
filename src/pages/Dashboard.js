@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import Amplify, {Auth} from 'aws-amplify';
 import awsExports from '../aws-exports';
-import { withAuthenticator} from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../App.css';
 import {Button, Menu, MenuItem} from '@material-ui/core';
+import {addUser} from "../actions/service";
 
 Amplify.configure(awsExports)
 
 function Dashboard() {
     const [user, setUser] = useState(null);
 
-    useEffect(async()=>{
+    useEffect(async() => {
         let user =  await Auth.currentUserInfo();
-        console.log(user)
+        if (user) {
+            const res = await addUser(user.attributes.email)
+            user = {...user, ...res}
+        }
         setUser(user);
     }, [])
 
