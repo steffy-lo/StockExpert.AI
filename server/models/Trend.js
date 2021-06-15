@@ -31,6 +31,6 @@ const TrendSchema = new mongoose.Schema({
     }
 });
 
-const Trend = mongoose.model('Trend', TrendSchema);
+const Trend = mongoose.models.Trend || mongoose.model('Trend', TrendSchema);
 
-module.exports = Trend;
+module.exports = { Trend, TrendSchema };

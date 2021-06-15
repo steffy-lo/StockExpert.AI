@@ -11,6 +11,6 @@ const IPTCTopicSchema = new mongoose.Schema({
     }
 });
 
-const IPTCTopic = mongoose.model('IPTCTopic', IPTCTopicSchema);
+const IPTCTopic = mongoose.models.IPTCTopic || mongoose.model('IPTCTopic', IPTCTopicSchema);
 
-module.exports = IPTCTopic;
+module.exports = { IPTCTopic, IPTCTopicSchema };

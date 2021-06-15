@@ -11,6 +11,6 @@ const EmotionalTraitSchema = new mongoose.Schema({
     }
 });
 
-const EmotionalTrait = mongoose.model('EmotionalTrait', EmotionalTraitSchema);
+const EmotionalTrait = mongoose.models.EmotionalTrait || mongoose.model('EmotionalTrait', EmotionalTraitSchema);
 
-module.exports = EmotionalTrait;
+module.exports = { EmotionalTrait, EmotionalTraitSchema };

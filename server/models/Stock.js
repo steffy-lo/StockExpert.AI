@@ -31,6 +31,6 @@ const StockSchema = new mongoose.Schema({
     }
 });
 
-const Stock = mongoose.model('Stock', StockSchema);
+const Stock = mongoose.models.Stock || mongoose.model('Stock', StockSchema);
 
-module.exports = Stock;
+module.exports = { Stock, StockSchema };

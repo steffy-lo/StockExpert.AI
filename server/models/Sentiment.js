@@ -15,6 +15,6 @@ const SentimentSchema = new mongoose.Schema({
     }
 });
 
-const Sentiment = mongoose.model('Trend', SentimentSchema);
+const Sentiment = mongoose.models.Sentiment || mongoose.model('Trend', SentimentSchema);
 
-module.exports = Sentiment;
+module.exports = { Sentiment, SentimentSchema };

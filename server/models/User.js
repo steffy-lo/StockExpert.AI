@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
-const Stock = require("./Stock");
-const Result = require("./Result");
+const { StockSchema } = require("./Stock");
+const { ResultSchema } = require("./Result");
 
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
     },
-    watchlist: [Stock],
-    history: [Result]
+    watchlist: [StockSchema],
+    history: [ResultSchema]
 });
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.models.User ||mongoose.model('User', UserSchema);
 
-module.exports = User;
+module.exports = { User, UserSchema };

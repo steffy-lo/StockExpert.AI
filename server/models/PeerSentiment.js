@@ -19,6 +19,6 @@ const PeerSentimentSchema = new mongoose.Schema({
     }
 });
 
-const PeerSentiment = mongoose.model('PeerSentiment', PeerSentimentSchema);
+const PeerSentiment = mongoose.models.PeerSentiment || mongoose.model('PeerSentiment', PeerSentimentSchema);
 
-module.exports = PeerSentiment;
+module.exports = { PeerSentiment, PeerSentimentSchema };

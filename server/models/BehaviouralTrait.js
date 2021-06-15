@@ -11,6 +11,6 @@ const BehaviouralTraitSchema = new mongoose.Schema({
     }
 });
 
-const BehaviouralTrait = mongoose.model('BehaviouralTrait', BehaviouralTraitSchema);
+const BehaviouralTrait = mongoose.models.BehaviouralTrait || mongoose.model('BehaviouralTrait', BehaviouralTraitSchema);
 
-module.exports = BehaviouralTrait;
+module.exports = { BehaviouralTrait, BehaviouralTraitSchema };
