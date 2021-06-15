@@ -10,9 +10,16 @@ import Trends from "../widgets/Trends";
 import React, {useEffect, useState} from 'react';
 import {getExpertAiToken} from '../actions';
 
-export default function Result({news, search}) {
+export default function Result({news, search, user}) {
     const [expertAiToken, setExpertAiToken] = useState("");
     const [sentimentResult, setSentimentResult] = useState([]);
+    const [behaviouralTraitsResult, setBehaviouralTraitsResult] = useState([]);
+    const [emotionalTraitsResult, setEmotionalTraitsResult] = useState([]);
+    const [trendsResult, setTrendsResult] = useState([]);
+    const [iptcResult, setIPTCResult] = useState([]);
+    const [sentimentDisResult, setSentimentDistResult] = useState([]);
+    const [peerCompResult, setPeerCompResult] = useState([]);
+    const [articleBreakdownResult, setArticleBreakdownResult] = useState([]);
 
 
     const getAndSetExpertAiToken = async () => {

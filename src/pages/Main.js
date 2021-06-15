@@ -12,7 +12,7 @@ import { newsListData } from "../mock_data";
 
 import Result from "../components/Result";
 
-function Main({forwardedRef}) {
+function Main({forwardedRef, user}) {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showResults, setShowResults] = useState(false);
@@ -66,7 +66,7 @@ function Main({forwardedRef}) {
 
          {/****************** RESULTS *************************/}
          {showResults?
-            <Result news={news} search={search}/>
+            <Result news={news} search={search} user={user}/>
          :null}
 
          

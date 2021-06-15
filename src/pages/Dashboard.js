@@ -5,6 +5,8 @@ import { withAuthenticator} from '@aws-amplify/ui-react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../App.css';
 import {Button, Popper, Grow, MenuItem, ClickAwayListener, Paper, MenuList} from '@material-ui/core';
+import {addUser} from "../actions/service";
+import Main from "./Main";
 
 Amplify.configure(awsExports)
 
@@ -17,6 +19,10 @@ function Dashboard() {
     useEffect(async()=>{
         let user =  await Auth.currentUserInfo();
         console.log(user)
+        if (user) {
+            const res = await addUser(user.attributes.email)
+            user = {...user, ...res}
+        }
         setUser(user);
     }, [])
 
@@ -101,10 +107,9 @@ function Dashboard() {
             </span>:null
         }
 
+            </div>
         </div>
-    </div>
-    
-    
+            {!!user && <Main user={user}/>}
     </>
     )
 }
