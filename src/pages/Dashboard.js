@@ -1,35 +1,54 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Amplify, {Auth} from 'aws-amplify';
 import awsExports from '../aws-exports';
-import { withAuthenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator} from '@aws-amplify/ui-react'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../App.css';
-import {Button, Menu, MenuItem} from '@material-ui/core';
-import {addUser} from "../actions/service";
+import {Button, Popper, Grow, MenuItem, ClickAwayListener, Paper, MenuList} from '@material-ui/core';
 
 Amplify.configure(awsExports)
 
 function Dashboard() {
     const [user, setUser] = useState(null);
+    const [open, setOpen] = useState(false);
+    const anchorRef = useRef(null);
+  
 
-    useEffect(async() => {
+    useEffect(async()=>{
         let user =  await Auth.currentUserInfo();
-        if (user) {
-            const res = await addUser(user.attributes.email)
-            user = {...user, ...res}
-        }
+        console.log(user)
         setUser(user);
     }, [])
 
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+    
+    const handleToggle = () => {
+      setOpen((prevOpen) => !prevOpen);
     };
   
-    const handleClose = () => {
-      setAnchorEl(null);
+    const handleClose = (event) => {
+      if (anchorRef.current && anchorRef.current.contains(event.target)) {
+        return;
+      }
+  
+      setOpen(false);
     };
+  
+    function handleListKeyDown(event) {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        setOpen(false);
+      }
+    }
+  
+    // return focus to the button when we transitioned from !open -> open
+    const prevOpen = useRef(open);
+    React.useEffect(() => {
+      if (prevOpen.current === true && open === false) {
+        anchorRef.current.focus();
+      }
+  
+      prevOpen.current = open;
+    }, [open]);
 
     async function signOut() {
         try {
@@ -50,21 +69,35 @@ function Dashboard() {
         <div>
         {!!user?
             <span className="dashboard-menu">
-                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                <div>
+                    <Button
+                    ref={anchorRef}
+                    aria-controls={open ? 'menu-list-grow' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleToggle}
+                    >
                     <p style={{textTransform:"none", color:"white"}}>{user.attributes.email}</p><ExpandMoreIcon style={{ color: "white"}}/>
-                </Button>
-                <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                >
-                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                <MenuItem onClick={handleClose}>Watchlist</MenuItem>
-                <MenuItem onClick={handleClose}>History</MenuItem>
-                <MenuItem onClick={signOut}>Sign Out</MenuItem>
-                </Menu>
+                    </Button>
+                    <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                    {({ TransitionProps, placement }) => (
+                        <Grow
+                        {...TransitionProps}
+                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                        >
+                        <Paper>
+                            <ClickAwayListener onClickAway={handleClose}>
+                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                            <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                            <MenuItem onClick={handleClose}>Watchlist</MenuItem>
+                            <MenuItem onClick={handleClose}>History</MenuItem>
+                            <MenuItem onClick={signOut}>Sign Out</MenuItem>
+                            </MenuList>
+                            </ClickAwayListener>
+                        </Paper>
+                        </Grow>
+                    )}
+                    </Popper>
+                </div>
             </span>:null
         }
 
