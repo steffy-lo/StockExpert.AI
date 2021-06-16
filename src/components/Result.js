@@ -8,7 +8,8 @@ import PeerComparison from "../widgets/PeerComparison";
 import SentimentHistogram from "../widgets/SentimentHistogram";
 import Trends from "../widgets/Trends";
 import React, {useEffect, useState} from 'react';
-import {getExpertAiToken} from '../actions';
+import {getExpertAiToken, getStockQuote} from '../actions';
+import { addToUserHistory } from '../actions/service';
 
 export default function Result({news, search, user}) {
     const [expertAiToken, setExpertAiToken] = useState("");
@@ -17,19 +18,43 @@ export default function Result({news, search, user}) {
     const [emotionalTraitsResult, setEmotionalTraitsResult] = useState([]);
     const [trendsResult, setTrendsResult] = useState([]);
     const [iptcResult, setIPTCResult] = useState([]);
-    const [sentimentDisResult, setSentimentDistResult] = useState([]);
     const [peerCompResult, setPeerCompResult] = useState([]);
     const [articleBreakdownResult, setArticleBreakdownResult] = useState([]);
+    const [stockSchema, setStockSchema] = useState({});
 
-
-    const getAndSetExpertAiToken = async () => {
+    const getAndSetPromises = async () => {
         setExpertAiToken(await getExpertAiToken());
+        let quote  = await getStockQuote(search.toUpperCase());
+        delete quote.t; //remove 't' property
+        quote.symbol = search.toUpperCase(); //add symbol property
+        setStockSchema(quote);
     }
 
     useEffect(() => {
-        getAndSetExpertAiToken();
-        console.log(search)
+        getAndSetPromises();
     }, [])
+
+    useEffect(()=>{
+        //if user is signed in, add to History
+        if (!!user && Object.keys(stockSchema).length > 0 && articleBreakdownResult.length > 0 && behaviouralTraitsResult.length > 0
+        && emotionalTraitsResult.length > 0 && iptcResult.length > 0 && peerCompResult.length > 0 && sentimentResult.length > 0 && trendsResult.length > 0){
+            const resultData = {
+                stock: stockSchema,
+                articles: news,
+                articleBreakdown: articleBreakdownResult,
+                behaviouralTraits: behaviouralTraitsResult,
+                emotionalTraits: emotionalTraitsResult,
+                IPTCTopics: iptcResult,
+                peerSentiment: peerCompResult,
+                sentiment: sentimentResult,
+                trends: trendsResult
+            }
+            console.log(resultData)
+            console.log("Pushed to History!")
+            // let res = await addToUserHistory(resultData, user.username);
+            // console.log(res)
+        }
+    }, [stockSchema, news, articleBreakdownResult, behaviouralTraitsResult, emotionalTraitsResult, iptcResult,peerCompResult, sentimentResult, trendsResult])
 
     return(
         <Container>
@@ -55,7 +80,7 @@ export default function Result({news, search, user}) {
                    <IPTCTopics newsList={news} token={expertAiToken} setIPTCResult={setIPTCResult}/>
                </Grid>
                <Grid item md={6} xs={12}>
-                   <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult} setSentimentDistResult={setSentimentDistResult}/>
+                   <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
                </Grid>
            </Grid>
            <Grid container justify="center" spacing={5} style={{marginTop:"22px", marginBottom: "40px"}}>

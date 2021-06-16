@@ -7,7 +7,7 @@ const StockSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        required: false
     },
     o: {
         type: Number,

@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 app.use(helmet());
 app.use(cors());
-app.use(express.json()); //parses incoming requests as JSON
+app.use(express.json({limit: '50mb'}));
 app.use(express.static(__dirname + "/build"));
 
 const { User } = require("./models/User");
@@ -62,13 +62,24 @@ app.patch('/user', (req, res) => {
 
 })
 
-app.post('/result', (req, res) => {
-    const result = new Result(req.body)
-    result.save().then(result => {
-        res.send(result)
-    }, error => {
+app.post('/result/:username', (req, res) => {
+    const result = new Result(req.body);
+    const query = {username: req.params.username};
+    User.findOne(query).then((user) => {
+        if (!user) {
+            res.status(404).send()
+        } else {
+            user.history.push(result);
+            user.save().then(result => {
+                res.send(result);
+            }, error => {
+                console.log(error)
+                res.status(400).send(error)
+            })
+        }
+    }).catch((error) => {
         console.log(error)
-        res.status(400).send(error)
+        res.status(500).send(error)  // server error
     })
 })
 

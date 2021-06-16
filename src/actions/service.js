@@ -38,9 +38,9 @@ export const updateUser = async (userData) => {
     }
 }
 
-export const addToUserHistory = async (resultData) => {
+export const addToUserHistory = async (resultData, username) => {
     try {
-        const response = await axios.post(host + "/result", resultData)
+        const response = await axios.post(host + `/result/${username}`, resultData)
         return response.data
     } catch (error) {
         console.error(error);

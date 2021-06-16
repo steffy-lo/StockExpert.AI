@@ -33,7 +33,10 @@ export default function OverallSentiment({newsList, token, setSentimentResult}) 
       Promise.all(requests).then((result) => {
         calculateMean(result);
         calculateMedian(result);
-        setSentimentResult(result);
+        const filteredSentiment = result.map(({overall, negativity, positivity }) => ({
+          overall, negativity, positivity
+        }));
+        setSentimentResult(filteredSentiment);
       });
     }
 
