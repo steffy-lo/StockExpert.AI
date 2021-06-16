@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 import { articleBreakdownData } from "../mock_data";
 import {getColor} from "../utils";
 
-function ArticleBreakdown({ newsList, token, sentiment }) {
+function ArticleBreakdown({ newsList, token, sentiment, setArticleBreakdownResult}) {
 
     const [articles, setArticles] = React.useState([]);
 
@@ -22,6 +22,7 @@ function ArticleBreakdown({ newsList, token, sentiment }) {
         //     }
         // }
         setArticles(articleBreakdownData);
+        setArticleBreakdownResult(articleBreakdownData);
     }
 
     React.useEffect(() => {

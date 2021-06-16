@@ -6,7 +6,7 @@ import {getEmotionalTraits} from "../actions";
 import { COLORS } from "../utils";
 
 
-export default function EmotionalTraits({newsList, token}){
+export default function EmotionalTraits({newsList, token, setEmotionalTraitsResult}){
 
     const [emotionalTraits, setEmotionalTraits] = useState([]);
 
@@ -36,11 +36,13 @@ export default function EmotionalTraits({newsList, token}){
             })
             console.log(emotionalTraits)
             setEmotionalTraits(emotionalTraits);
+            setEmotionalTraitsResult(emotionalTraits);
         });
     }
 
     useEffect(() => {
         setEmotionalTraits(emotionalTraitsData);
+        setEmotionalTraitsResult(emotionalTraitsData);
         // fetchEmotionalTraitsAPI(newsList);
     }, [newsList])
 

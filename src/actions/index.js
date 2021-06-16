@@ -141,3 +141,12 @@ export const getStockNews = async (query) => {
         console.error(error);
     }
 }
+
+export const getStockQuote = async (symbol) => {
+    try {
+        const response = await axios.get(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${process.env.REACT_APP_FINNHUB_API_TOKEN}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}

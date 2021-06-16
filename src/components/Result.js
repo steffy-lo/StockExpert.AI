@@ -27,7 +27,8 @@ export default function Result({news, search, user}) {
     }
 
     useEffect(() => {
-        getAndSetExpertAiToken()
+        getAndSetExpertAiToken();
+        console.log(search)
     }, [])
 
     return(
@@ -38,31 +39,31 @@ export default function Result({news, search, user}) {
                    <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
                </Grid>
                <Grid item md={8} xs={12}>
-                   <Trends stock={search}/>
+                   <Trends stock={search} setTrendsResult={setTrendsResult}/>
                </Grid>
            </Grid>
            <Grid container justify="center" spacing={5} style={{marginTop:"22px"}}>
                <Grid item sm={6} xs={12}>
-                   <BehaviouralTraits newsList={news} token={expertAiToken}/>
+                   <BehaviouralTraits newsList={news} token={expertAiToken} setBehaviouralTraitsResult={setBehaviouralTraitsResult}/>
                </Grid>
                <Grid item sm={6} xs={12}>
-                   <EmotionalTraits newsList={news} token={expertAiToken}/>
+                   <EmotionalTraits newsList={news} token={expertAiToken} setEmotionalTraitsResult={setEmotionalTraitsResult}/>
                </Grid>
            </Grid>
            <Grid container justify="center" spacing={5} style={{marginTop:"22px"}}>
                <Grid item md={6} xs={12}>
-                   <IPTCTopics newsList={news} token={expertAiToken}/>
+                   <IPTCTopics newsList={news} token={expertAiToken} setIPTCResult={setIPTCResult}/>
                </Grid>
                <Grid item md={6} xs={12}>
-                   <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
+                   <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult} setSentimentDistResult={setSentimentDistResult}/>
                </Grid>
            </Grid>
            <Grid container justify="center" spacing={5} style={{marginTop:"22px", marginBottom: "40px"}}>
                <Grid item lg={5} xs={12}>
-                   <PeerComparison stock={search} sentiment={sentimentResult}/>
+                   <PeerComparison stock={search} sentiment={sentimentResult} setPeerCompResult={setPeerCompResult}/>
                </Grid>
                <Grid item lg={7} xs={12}>
-                   <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
+                   <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult} setArticleBreakdownResult={setArticleBreakdownResult}/>
                </Grid>
            </Grid>           
        </Grid>

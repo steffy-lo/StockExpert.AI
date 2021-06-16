@@ -3,18 +3,20 @@ import { LineChart, Line, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} fr
 import {getRecommendationTrends} from "../actions";
 import {recommendationTrends} from "../mock_data";
 
-function Trends({stock}) {
+function Trends({stock, setTrendsResult}) {
 
     const [recommendations, setRecommendations] = React.useState([]);
 
     const getTrends = async () => {
         const trendResult = await getRecommendationTrends(stock);
         setRecommendations(trendResult.reverse());
+        setTrendsResult(trendResult.reverse());
     }
 
     React.useEffect(() => {
         // getTrends()
         setRecommendations(recommendationTrends)
+        setTrendsResult(recommendationTrends);
     }, [stock])
 
     const CustomTooltip = ({ active, payload }) => {

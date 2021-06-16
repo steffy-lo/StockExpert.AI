@@ -5,7 +5,7 @@ import { getIPTCTopics } from "../actions";
 import { IPTCData } from "../mock_data";
 import { COLORS } from "../utils";
 
-export default function IPTCTopics({newsList, token}) {
+export default function IPTCTopics({newsList, token, setIPTCResult}) {
 const [IPTCTopics, setIPTCTopics] = useState([]);
 
     const fetchIPTCTopicsAPI = async (news) =>{
@@ -36,12 +36,14 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
             })
             console.log(JSON.stringify(IPTCData))
             setIPTCTopics(IPTCData);
+            setIPTCResult(IPTCData);
             
         });
     }
 
     useEffect(() => {
         setIPTCTopics(IPTCData);
+        setIPTCResult(IPTCData);
         //fetchIPTCTopicsAPI(newsList);
     }, [newsList])
 

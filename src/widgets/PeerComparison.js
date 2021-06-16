@@ -5,7 +5,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from
 import {COLORS} from "../utils";
 import {peerSentiment} from "../mock_data";
 
-function PeerComparison({stock, sentiment}) {
+function PeerComparison({stock, sentiment, setPeerCompResult}) {
 
     const [stocks, setStocks] = React.useState([]);
     const [sentimentList, setSentimentList] = React.useState([]);
@@ -50,6 +50,7 @@ function PeerComparison({stock, sentiment}) {
         }
         console.log(stockSentimentList)
         setSentimentList(stockSentimentList);
+        setPeerCompResult(stockSentimentList);
     }
 
     const CustomTooltip = ({ active, payload }) => {
@@ -74,6 +75,7 @@ function PeerComparison({stock, sentiment}) {
     React.useEffect(() => {
         // getStockSentiment()
         setSentimentList(peerSentiment)
+        setPeerCompResult(peerSentiment)
     }, [stocks, sentiment])
 
     return (

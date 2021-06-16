@@ -7,12 +7,14 @@ import '../App.css';
 import {Button, Popper, Grow, MenuItem, ClickAwayListener, Paper, MenuList} from '@material-ui/core';
 import {addUser} from "../actions/service";
 import Main from "./Main";
+import History from "./History";
 
 Amplify.configure(awsExports)
 
 function Dashboard() {
     const [user, setUser] = useState(null);
     const [open, setOpen] = useState(false);
+    const [state, setState] = useState("Main");
     const anchorRef = useRef(null);
   
 
@@ -93,9 +95,14 @@ function Dashboard() {
                         <Paper>
                             <ClickAwayListener onClickAway={handleClose}>
                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                            <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                            <MenuItem onClick={(e)=>{
+                                setState("Main");
+                                handleClose(e);}}>Dashboard</MenuItem>
                             <MenuItem onClick={handleClose}>Watchlist</MenuItem>
-                            <MenuItem onClick={handleClose}>History</MenuItem>
+                            <MenuItem onClick={(e)=>{
+                                setState("History");
+                                handleClose(e);
+                            }}>History</MenuItem>
                             <MenuItem onClick={signOut}>Sign Out</MenuItem>
                             </MenuList>
                             </ClickAwayListener>
@@ -109,7 +116,8 @@ function Dashboard() {
 
             </div>
         </div>
-            {!!user && <Main user={user}/>}
+            {!!user && state == "Main" && <Main user={user}/>}
+            {!!user && state == "History" && <History user={user}/>}
     </>
     )
 }

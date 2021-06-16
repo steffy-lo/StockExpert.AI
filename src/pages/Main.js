@@ -20,6 +20,7 @@ function Main({forwardedRef, user}) {
     const [search, setSearch] = useState("");
     
     useEffect(() => {
+        console.log(user)
         if(news.length > 0) {
             setLoading(false);
             setShowResults(true);
@@ -62,6 +63,7 @@ function Main({forwardedRef, user}) {
              // set Mock Data to save API calls
              setNews(newsListData);
              // setNews(newsList)
+
          }}>Analyze</Button>}
 
          {/****************** RESULTS *************************/}

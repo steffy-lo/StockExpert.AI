@@ -5,7 +5,7 @@ import {getBehavioralTraits} from "../actions";
 import {behaviouralTraitsData} from "../mock_data";
 import { COLORS } from "../utils";
 
-export default function BehaviouralTraits({newsList, token}) {
+export default function BehaviouralTraits({newsList, token, setBehaviouralTraitsResult}) {
 
     const [behavioralTraits, setBehavioralTraits] = useState([]);
 
@@ -35,11 +35,13 @@ export default function BehaviouralTraits({newsList, token}) {
             })
             console.log(behavioralTraits)
             setBehavioralTraits(behavioralTraits);
+            setBehaviouralTraitsResult(behavioralTraits);
         });
     }
 
     useEffect(() => {
         setBehavioralTraits(behaviouralTraitsData);
+        setBehaviouralTraitsResult(behaviouralTraitsData);
         // fetchBehavioralTraitsAPI(newsList);
     }, [newsList])
 

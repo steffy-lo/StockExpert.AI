@@ -3,14 +3,13 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip} from 'rechar
 import Loader from "../components/Loader";
 import { COLORS } from "../utils";
 
-export default function SentimentHistogram({ newsList, token, sentiment }){
+export default function SentimentHistogram({ newsList, token, sentiment, setSentimentDistResult}){
 
     const [data, setData] = useState([]);
 
     const getMinAndMax = (sentiment)=> {
        let max = Math.max.apply(Math, sentiment.map(function(i) { return i.overall; }))
        let min = Math.min.apply(Math, sentiment.map(function(i) { return i.overall; }))
-       console.log(max +' '+min)
        //get highest whole number if positive number (i.e. 5.05 => 6)
        //get lowest whole number if negative number (i.e. -7.2 => -8)
        max>0? max = Math.ceil(max): max = Math.floor(max)
@@ -20,7 +19,6 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
 
     const createHistogramData = (sentiment) =>{
         let {max, min} = getMinAndMax(sentiment)
-        console.log(max,min)
         let binSize = 1;
         let data=[]; // for histogram
 
@@ -35,8 +33,8 @@ export default function SentimentHistogram({ newsList, token, sentiment }){
             }
             data.push(obj)
         }   
-        console.log(data)
         setData(data);
+        setSentimentDistResult(data);
     }
 
     useEffect(() => {
