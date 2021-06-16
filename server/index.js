@@ -44,7 +44,7 @@ app.get('/user/:username', (req, res) => {
     })
 });
 
-app.patch('/user', (req, res) => {
+app.put('/user', (req, res) => {
     const user = req.body;
     User.findOneAndUpdate({username: user.username}, user, {
             new: true,

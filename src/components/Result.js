@@ -14,7 +14,7 @@ import Button from "./Button";
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-export default function Result({news, search, user}) {
+export default function Result({news, search, user, setUser, history}) {
     const [expertAiToken, setExpertAiToken] = useState("");
     const [sentimentResult, setSentimentResult] = useState([]);
     const [behaviouralTraitsResult, setBehaviouralTraitsResult] = useState([]);
@@ -37,10 +37,10 @@ export default function Result({news, search, user}) {
         getAndSetPromises();
     }, [])
 
-    useEffect(()=>{
+    useEffect(async ()=>{
         //if user is signed in, add to History
-        if (!!user && Object.keys(stockSchema).length > 0 && articleBreakdownResult.length > 0 && behaviouralTraitsResult.length > 0
-        && emotionalTraitsResult.length > 0 && iptcResult.length > 0 && peerCompResult.length > 0 && sentimentResult.length > 0 && trendsResult.length > 0){
+        if (!history && !!user && Object.keys(stockSchema).length > 0 && articleBreakdownResult.length > 0 && behaviouralTraitsResult.length > 0
+        && emotionalTraitsResult.length > 0 && iptcResult.length > 0 && peerCompResult.length > 0 && sentimentResult.length > 0 && trendsResult.length > 0) {
             const resultData = {
                 stock: stockSchema,
                 articles: news,
@@ -54,8 +54,8 @@ export default function Result({news, search, user}) {
             }
             console.log(resultData)
             console.log("Pushed to History!")
-            // let res = await addToUserHistory(resultData, user.username);
-            // console.log(res)
+            let res = await addToUserHistory(resultData, user.username);
+            setUser({...user, ...res});
         }
     }, [stockSchema, news, articleBreakdownResult, behaviouralTraitsResult, emotionalTraitsResult, iptcResult,peerCompResult, sentimentResult, trendsResult])
 
@@ -66,14 +66,27 @@ export default function Result({news, search, user}) {
             <div style={{ fontSize: "18px", display: "flex", alignItems: "center"}}>
                 <p style={{ marginRight: "5px"}}>Add to Watchlist</p>
                 {user.watchlist.map(stock => stock.symbol).includes(search) ?
-                    <StarIcon style={{ color: "#ffc107",  cursor: "pointer"}}/> :
-                    <StarBorderIcon style={{ color: "#ffc107", cursor: "pointer"}} onClick={async () => {
+                    <StarIcon style={{ color: "#ffc107",  cursor: "pointer"}} onClick={async () => {
                         const updatedUser = await updateUser({
                             username: user.username,
-                            watchlist: [...user.watchlist, stockSchema],
+                            watchlist: user.watchlist.filter(function(stock, index, arr){
+                                return stock.symbol !== search;
+                            }),
                             history: user.history
                         })
+                        setUser({...user, ...updatedUser})
                         console.log(updatedUser)
+                    }}/> :
+                    <StarBorderIcon style={{ color: "#ffc107", cursor: "pointer"}} onClick={async () => {
+                        if (stockSchema) {
+                            const updatedUser = await updateUser({
+                                username: user.username,
+                                watchlist: [...user.watchlist, stockSchema],
+                                history: user.history
+                            })
+                            setUser({...user, ...updatedUser})
+                            console.log(updatedUser)
+                        }
                     }}/>}
             </div>}
            <Grid container justify="center" spacing={5}>

@@ -4,6 +4,7 @@ import './App.css';
 import Landing from './pages/Landing';
 import Main from './pages/Main';
 import Dashboard from './pages/Dashboard';
+import Result from "./components/Result";
 
 function Home({landing, main}){
     return(
@@ -23,7 +24,7 @@ function App() {
             <Route exact path={["/", "/#main"]}>
                 <Home landing={landing} main={main}/>
             </Route>
-            <Route exact path="/signin">
+            <Route exact path="/dashboard">
                 <Dashboard/>
             </Route>
         </Router>

@@ -31,7 +31,7 @@ export const getUser = async (username) => {
 
 export const updateUser = async (userData) => {
     try {
-        const response = await axios.patch(host + "/user", userData)
+        const response = await axios.put(host + "/user", userData)
         return response.data;
     } catch (error) {
         console.error(error);

@@ -8,6 +8,7 @@ import {Button, Popper, Grow, MenuItem, ClickAwayListener, Paper, MenuList} from
 import {addUser} from "../actions/service";
 import Main from "./Main";
 import History from "./History";
+import Watchlist from "./Watchlist";
 
 Amplify.configure(awsExports)
 
@@ -70,7 +71,7 @@ function Dashboard() {
 
     return (
         <>
-    <div className="dashboard-header">
+            <div className="dashboard-header">
         <div>
         <p style={{fontSize:"1.4rem", marginTop:'0.5em'}}>StockExpert<span style={{color:"#7469ff"}}>.AI</span></p>
         </div>
@@ -86,7 +87,7 @@ function Dashboard() {
                     >
                     <p style={{textTransform:"none", color:"white"}}>{user.attributes.email}</p><ExpandMoreIcon style={{ color: "white"}}/>
                     </Button>
-                    <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                    <Popper style={{ zIndex: 1, position: "relative"}} open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                     {({ TransitionProps, placement }) => (
                         <Grow
                         {...TransitionProps}
@@ -97,8 +98,10 @@ function Dashboard() {
                             <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                             <MenuItem onClick={(e)=>{
                                 setState("Main");
-                                handleClose(e);}}>Dashboard</MenuItem>
-                            <MenuItem onClick={handleClose}>Watchlist</MenuItem>
+                                handleClose(e);}}>Analyze</MenuItem>
+                            <MenuItem onClick={(e)=>{
+                                setState("Watchlist");
+                                handleClose(e);}}>Watchlist</MenuItem>
                             <MenuItem onClick={(e)=>{
                                 setState("History");
                                 handleClose(e);
@@ -116,8 +119,9 @@ function Dashboard() {
 
             </div>
         </div>
-            {!!user && state == "Main" && <Main user={user}/>}
-            {!!user && state == "History" && <History user={user}/>}
+            {!!user && state == "Main" && <Main user={user} setUser={setUser}/>}
+            {!!user && state == "History" && <History user={user} setUser={setUser}/>}
+            {!!user && state == "Watchlist" && <Watchlist user={user}/>}
     </>
     )
 }
