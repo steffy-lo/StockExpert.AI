@@ -9,7 +9,10 @@ import SentimentHistogram from "../widgets/SentimentHistogram";
 import Trends from "../widgets/Trends";
 import React, {useEffect, useState} from 'react';
 import {getExpertAiToken, getStockQuote} from '../actions';
-import { addToUserHistory } from '../actions/service';
+import { addToUserHistory, updateUser } from '../actions/service';
+import Button from "./Button";
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 export default function Result({news, search, user}) {
     const [expertAiToken, setExpertAiToken] = useState("");
@@ -57,8 +60,22 @@ export default function Result({news, search, user}) {
     }, [stockSchema, news, articleBreakdownResult, behaviouralTraitsResult, emotionalTraitsResult, iptcResult,peerCompResult, sentimentResult, trendsResult])
 
     return(
-        <Container>
+        <Container style={{ marginTop: "25px"}}>
         <Grid container spacing={5} justify="center">
+            {!!user &&
+            <div style={{ fontSize: "18px", display: "flex", alignItems: "center"}}>
+                <p style={{ marginRight: "5px"}}>Add to Watchlist</p>
+                {user.watchlist.map(stock => stock.symbol).includes(search) ?
+                    <StarIcon style={{ color: "#ffc107",  cursor: "pointer"}}/> :
+                    <StarBorderIcon style={{ color: "#ffc107", cursor: "pointer"}} onClick={async () => {
+                        const updatedUser = await updateUser({
+                            username: user.username,
+                            watchlist: [...user.watchlist, stockSchema],
+                            history: user.history
+                        })
+                        console.log(updatedUser)
+                    }}/>}
+            </div>}
            <Grid container justify="center" spacing={5}>
                <Grid item md={4} xs={6}>
                    <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
