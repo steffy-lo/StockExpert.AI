@@ -9,6 +9,7 @@ import { COLORS } from "../utils";
 export default function EmotionalTraits({newsList, token, setEmotionalTraitsResult}){
 
     const [emotionalTraits, setEmotionalTraits] = useState([]);
+    const [loadPieChart, setLoadPieChart] = useState(false);
 
     const fetchEmotionalTraitsAPI = async (news) =>{
         let requests = news.map((item) => {
@@ -40,9 +41,10 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
         });
     }
 
-    useEffect(() => {
-        setEmotionalTraits(emotionalTraitsData);
-        setEmotionalTraitsResult(emotionalTraitsData);
+    useEffect(async() => {
+        await setEmotionalTraits(emotionalTraitsData);
+        await setEmotionalTraitsResult(emotionalTraitsData);
+        await setLoadPieChart(true);
         // fetchEmotionalTraitsAPI(newsList);
     }, [newsList])
 
@@ -77,7 +79,7 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
                 marginTop: "-29px" ,
                 fontSize:"22px"}}>Emotional Traits
             </p>
-            <PieChart width={400} height={470}>
+            {loadPieChart?<PieChart width={400} height={470}>
                 <Pie
                     dataKey="value"
                     data={emotionalTraits}
@@ -95,7 +97,7 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
                 <Legend layout="vertical" verticalAlign="bottom" content={renderLegend}/>
-            </PieChart>
+            </PieChart>:null}
            
         </div>
       );

@@ -8,6 +8,7 @@ import { COLORS } from "../utils";
 export default function BehaviouralTraits({newsList, token, setBehaviouralTraitsResult}) {
 
     const [behavioralTraits, setBehavioralTraits] = useState([]);
+    const [loadPieChart, setLoadPieChart] = useState(false);
 
     const fetchBehavioralTraitsAPI = async (news) =>{
         let requests = news.map((item) => {
@@ -39,9 +40,10 @@ export default function BehaviouralTraits({newsList, token, setBehaviouralTraits
         });
     }
 
-    useEffect(() => {
-        setBehavioralTraits(behaviouralTraitsData);
-        setBehaviouralTraitsResult(behaviouralTraitsData);
+    useEffect(async() => {
+        await setBehavioralTraits(behaviouralTraitsData);
+        await setBehaviouralTraitsResult(behaviouralTraitsData);
+        await setLoadPieChart(true);
         // fetchBehavioralTraitsAPI(newsList);
     }, [newsList])
 
@@ -81,7 +83,7 @@ export default function BehaviouralTraits({newsList, token, setBehaviouralTraits
                 marginTop: "-29px",
                 fontSize:"22px"}}>Behavioral Traits
             </p>
-            <PieChart width={400} height={505}>
+            {loadPieChart?<PieChart width={400} height={505}>
                 <Pie
                     dataKey="value"
                     data={behavioralTraits}
@@ -99,7 +101,8 @@ export default function BehaviouralTraits({newsList, token, setBehaviouralTraits
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
                 <Legend layout="vertical" verticalAlign="bottom" content={renderLegend}/>
-            </PieChart>
+            </PieChart>:null}
+            
         </div>
       );
 }
