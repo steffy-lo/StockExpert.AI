@@ -1,6 +1,9 @@
 {
   "name": "stockexpert.ai",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.x"
+  },
   "private": true,
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.18",
