@@ -1,8 +1,6 @@
 import React from "react";
-import Loader from "../components/Loader";
 import {getNewsSentiment, getPeerCompanies} from "../actions";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
-import {COLORS} from "../utils";
 import {peerSentiment} from "../mock_data";
 
 function PeerComparison({stock, sentiment, setPeerCompResult}) {
@@ -69,13 +67,13 @@ function PeerComparison({stock, sentiment, setPeerCompResult}) {
     };
 
     React.useEffect(() => {
-        // getPeers()
+        getPeers()
     }, [stock])
 
     React.useEffect(() => {
-        // getStockSentiment()
-        setSentimentList(peerSentiment)
-        setPeerCompResult(peerSentiment)
+        getStockSentiment()
+        // setSentimentList(peerSentiment)
+        // setPeerCompResult(peerSentiment)
     }, [stocks, sentiment])
 
     return (

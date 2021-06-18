@@ -14,9 +14,9 @@ function Trends({stock, setTrendsResult}) {
     }
 
     React.useEffect(() => {
-        // getTrends()
-        setRecommendations(recommendationTrends)
-        setTrendsResult(recommendationTrends);
+        getTrends()
+        // setRecommendations(recommendationTrends)
+        // setTrendsResult(recommendationTrends);
     }, [stock])
 
     const CustomTooltip = ({ active, payload }) => {

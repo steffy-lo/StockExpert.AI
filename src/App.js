@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import Main from './pages/Main';
 import Dashboard from './pages/Dashboard';
 import Result from "./components/Result";
+require('dotenv').config()
 
 function Home({landing, main}){
     return(

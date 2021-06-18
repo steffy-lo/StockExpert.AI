@@ -34,7 +34,6 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
                     }
                 })
             })
-            console.log(JSON.stringify(IPTCData))
             setIPTCTopics(IPTCData);
             setIPTCResult(IPTCData);
             
@@ -42,9 +41,9 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
     }
 
     useEffect(() => {
-        setIPTCTopics(IPTCData);
-        setIPTCResult(IPTCData);
-        //fetchIPTCTopicsAPI(newsList);
+        fetchIPTCTopicsAPI(newsList);
+        // setIPTCTopics(IPTCData);
+        // setIPTCResult(IPTCData);
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {
@@ -68,7 +67,7 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
             <BarChart
                 width={500}
                 height={300}
-                data={IPTCData}
+                data={IPTCTopics}
                 margin={{
                     top: 5,
                     right: 30,
@@ -81,7 +80,7 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
                 <YAxis tick={{fontSize: 12}} label={{ value: 'Frequency (%)', angle: -90, position: 'insideLeft', fontSize:"16px", fill:"white"}} />
                 <Tooltip content={CustomTooltip}/>
                 <Bar dataKey="value" fill="#82ca9d">
-                    {IPTCData.map((entry, index) => (
+                    {IPTCTopics.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                 </Bar>

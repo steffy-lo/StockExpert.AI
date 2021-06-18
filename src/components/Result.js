@@ -10,7 +10,6 @@ import Trends from "../widgets/Trends";
 import React, {useEffect, useState} from 'react';
 import {getExpertAiToken, getStockQuote} from '../actions';
 import { addToUserHistory, updateUser } from '../actions/service';
-import Button from "./Button";
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
@@ -26,7 +25,7 @@ export default function Result({news, search, user, setUser, history}) {
     const [stockSchema, setStockSchema] = useState({});
 
     const getAndSetPromises = async () => {
-        setExpertAiToken(await getExpertAiToken());
+        await setExpertAiToken(await getExpertAiToken());
         let quote  = await getStockQuote(search.toUpperCase());
         delete quote.t; //remove 't' property
         quote.symbol = search.toUpperCase(); //add symbol property
@@ -59,7 +58,7 @@ export default function Result({news, search, user, setUser, history}) {
         }
     }, [stockSchema, news, articleBreakdownResult, behaviouralTraitsResult, emotionalTraitsResult, iptcResult,peerCompResult, sentimentResult, trendsResult])
 
-    return(
+    return expertAiToken && (
         <Container style={{ marginTop: "25px"}}>
         <Grid container spacing={5} justify="center">
             {!!user &&

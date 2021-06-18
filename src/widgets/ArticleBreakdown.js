@@ -9,25 +9,27 @@ function ArticleBreakdown({ newsList, token, sentiment, setArticleBreakdownResul
     const [articles, setArticles] = React.useState([]);
 
     const loadArticleBreakdown = async () => {
-        // const articles = [];
-        // for (let i = 0; i < newsList.length; i++) {
-        //     const mainSentences = await getContentSummary(token, newsList[i].content);
-        //     if (mainSentences) {
-        //         articles.push({
-        //             title: newsList[i].title,
-        //             url: newsList[i].url,
-        //             sentiment: sentiment[i].overall,
-        //             sentences: mainSentences.map(sentence => sentence.value)
-        //         });
-        //     }
-        // }
-        setArticles(articleBreakdownData);
-        setArticleBreakdownResult(articleBreakdownData);
+        const articles = [];
+        for (let i = 0; i < newsList.length; i++) {
+            const mainSentences = await getContentSummary(token, newsList[i].content);
+            if (mainSentences) {
+                articles.push({
+                    title: newsList[i].title,
+                    url: newsList[i].url,
+                    sentiment: sentiment[i].overall,
+                    sentences: mainSentences.map(sentence => sentence.value)
+                });
+            }
+        }
+        setArticles(articles);
+        setArticleBreakdownResult(articles);
+        // setArticles(articleBreakdownData);
+        // setArticleBreakdownResult(articleBreakdownData);
     }
 
-    React.useEffect(() => {
+    React.useEffect(async () => {
         if (sentiment.length > 0) {
-            loadArticleBreakdown();
+            await loadArticleBreakdown();
         }
     }, [newsList, sentiment])
 

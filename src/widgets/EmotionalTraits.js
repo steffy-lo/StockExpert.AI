@@ -42,10 +42,10 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
     }
 
     useEffect(async() => {
-        await setEmotionalTraits(emotionalTraitsData);
-        await setEmotionalTraitsResult(emotionalTraitsData);
+        await fetchEmotionalTraitsAPI(newsList);
+        // await setEmotionalTraits(emotionalTraitsData);
+        // await setEmotionalTraitsResult(emotionalTraitsData);
         await setLoadPieChart(true);
-        // fetchEmotionalTraitsAPI(newsList);
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {

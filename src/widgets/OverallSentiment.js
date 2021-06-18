@@ -41,9 +41,9 @@ export default function OverallSentiment({newsList, token, setSentimentResult}) 
     }
 
     useEffect(() => {
-      setMean(5.5);
-      setSentimentResult(sentimentData);
-      // fetchSentimentalAPI(newsList);
+        fetchSentimentalAPI(newsList);
+        // setMean(5.5);
+        // setSentimentResult(sentimentData);
     }, [newsList])
 
     useLayoutEffect(() => {

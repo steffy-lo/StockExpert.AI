@@ -34,17 +34,16 @@ export default function BehaviouralTraits({newsList, token, setBehaviouralTraits
                     }
                 })
             })
-            console.log(behavioralTraits)
             setBehavioralTraits(behavioralTraits);
             setBehaviouralTraitsResult(behavioralTraits);
         });
     }
 
     useEffect(async() => {
-        await setBehavioralTraits(behaviouralTraitsData);
-        await setBehaviouralTraitsResult(behaviouralTraitsData);
+        await fetchBehavioralTraitsAPI(newsList);
+        // await setBehavioralTraits(behaviouralTraitsData);
+        // await setBehaviouralTraitsResult(behaviouralTraitsData);
         await setLoadPieChart(true);
-        // fetchBehavioralTraitsAPI(newsList);
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {

@@ -28,7 +28,7 @@ function Main({forwardedRef, user, setUser}) {
 
     return (
     <div className="App" ref={forwardedRef}>
-         <p style={{ marginBottom: "0.2rem" }}>{loading?`Analyzing 30 news sources related to ${search.toUpperCase()} stock...`:
+         <p style={{ marginBottom: "0.2rem" }}>{loading?`Analyzing 15 news sources related to ${search.toUpperCase()} stock...`:
          showResults? "Thank you for waiting.":"Let's run some sentimental analysis on stocks!"}</p>
          <p style={{ fontSize: "22px" }} >{loading?`Please wait for a moment.`:showResults?`Here are the results for ${search.toUpperCase()} stock.`:"To get started, enter the stock ticker symbol you'd like to analyze."}</p>
          <div style={{ width: "50%", margin: "35px", display: loading || showResults ?"none":"block" }}>
@@ -51,21 +51,23 @@ function Main({forwardedRef, user, setUser}) {
          </div>
          {loading?<Loader/>:showResults?null:<Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
              setLoading(true);
-             // const newsList = await getStockNews(search);
-             // for (let i = 0; i < newsList.length; i++) {
-             //     const article = await getArticle(newsList[i].url)
-             //     if (article) {
-             //         // expert.ai text input supports up to 10,000 characters for free version
-             //         newsList[i].content = removeTags(article.content).slice(0, 10000);
-             //     }
-             // }
+             const newsList = await getStockNews(search);
+             for (let i = 0; i < newsList.length; i++) {
+                 const article = await getArticle(newsList[i].url)
+                 if (article) {
+                     // expert.ai text input supports up to 10,000 characters for free version
+                     newsList[i].content = removeTags(article.content).slice(0, 10000);
+                 }
+             }
+             setNews(newsList)
+
+
              // set Mock Data to save API calls
-             //get only the necessary properties from news
-            const filteredNews = newsListData.map(({ title, url, content }) => ({
-                title, url, content
-            }));
-             setNews(filteredNews);
-             // setNews(newsList)
+             // get only the necessary properties from news
+             // const filteredNews = newsListData.map(({ title, url, content }) => ({
+             //     title, url, content
+             // }));
+             // setNews(filteredNews);
 
          }}>Analyze</Button>}
 
