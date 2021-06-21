@@ -8,7 +8,7 @@ import {sentimentData} from "../mock_data";
 
 am4core.useTheme(am4themes_animated);
 
-export default function OverallSentiment({newsList, token, setSentimentResult}) {
+export default function OverallSentiment({newsList, token, setSentimentResult, user, historyIndex}) {
     const chart = useRef(null);
     const [mean, setMean] = useState();
 
@@ -41,7 +41,13 @@ export default function OverallSentiment({newsList, token, setSentimentResult}) 
     }
 
     useEffect(() => {
-        fetchSentimentalAPI(newsList);
+        if (historyIndex === undefined) {
+            fetchSentimentalAPI(newsList);
+        } else {
+            const result = user.history[historyIndex].sentiment
+            calculateMean(result)
+            setSentimentResult(result)
+        }
         // setMean(5.5);
         // setSentimentResult(sentimentData);
     }, [newsList])

@@ -5,7 +5,7 @@ import { getIPTCTopics } from "../actions";
 import { IPTCData } from "../mock_data";
 import { COLORS } from "../utils";
 
-export default function IPTCTopics({newsList, token, setIPTCResult}) {
+export default function IPTCTopics({newsList, token, setIPTCResult, user, historyIndex}) {
 const [IPTCTopics, setIPTCTopics] = useState([]);
 
     const fetchIPTCTopicsAPI = async (news) =>{
@@ -16,8 +16,6 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
             });
         })
         Promise.all(requests).then((result) => {
-            console.log(result)
-            
             const filtered = result.filter(item => item != undefined);
             let IPTCData = []; //use for bar chart
             filtered.map(items=>{
@@ -41,9 +39,15 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
     }
 
     useEffect(() => {
-        fetchIPTCTopicsAPI(newsList);
-        // setIPTCTopics(IPTCData);
-        // setIPTCResult(IPTCData);
+        if (historyIndex === undefined) {
+            fetchIPTCTopicsAPI(newsList);
+            // setIPTCTopics(IPTCData);
+            // setIPTCResult(IPTCData);
+        } else {
+            console.log("else")
+            setIPTCTopics(user.history[historyIndex].IPTCTopics)
+            setIPTCResult(user.history[historyIndex].IPTCTopics)
+        }
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {

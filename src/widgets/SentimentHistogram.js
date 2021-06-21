@@ -3,7 +3,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip} from 'rechar
 import Loader from "../components/Loader";
 import { COLORS } from "../utils";
 
-export default function SentimentHistogram({ newsList, token, sentiment}){
+export default function SentimentHistogram({ newsList, sentiment }){
 
     const [data, setData] = useState([]);
 

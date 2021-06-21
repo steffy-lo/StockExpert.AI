@@ -19,6 +19,8 @@ const ResultSchema = new mongoose.Schema({
     peerSentiment: [PeerSentimentSchema],
     sentiment: [SentimentSchema],
     trends: [TrendSchema]
+},{
+    timestamps: true
 });
 
 const Result = mongoose.models.Result || mongoose.model('Result', ResultSchema);

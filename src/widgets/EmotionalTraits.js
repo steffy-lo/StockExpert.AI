@@ -6,7 +6,7 @@ import {getEmotionalTraits} from "../actions";
 import { COLORS } from "../utils";
 
 
-export default function EmotionalTraits({newsList, token, setEmotionalTraitsResult}){
+export default function EmotionalTraits({newsList, token, setEmotionalTraitsResult, user, historyIndex}){
 
     const [emotionalTraits, setEmotionalTraits] = useState([]);
     const [loadPieChart, setLoadPieChart] = useState(false);
@@ -42,10 +42,16 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
     }
 
     useEffect(async() => {
-        await fetchEmotionalTraitsAPI(newsList);
-        // await setEmotionalTraits(emotionalTraitsData);
-        // await setEmotionalTraitsResult(emotionalTraitsData);
-        await setLoadPieChart(true);
+        if (historyIndex === undefined) {
+            await fetchEmotionalTraitsAPI(newsList);
+            // await setEmotionalTraits(emotionalTraitsData);
+            // await setEmotionalTraitsResult(emotionalTraitsData);
+            setLoadPieChart(true);
+        } else {
+            await setEmotionalTraits(user.history[historyIndex].emotionalTraits)
+            await setEmotionalTraitsResult(user.history[historyIndex].emotionalTraits)
+            setLoadPieChart(true);
+        }
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {

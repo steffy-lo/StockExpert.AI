@@ -36,9 +36,9 @@ export default function Result({news, search, user, setUser, history}) {
         getAndSetPromises();
     }, [])
 
-    useEffect(async ()=>{
+    useEffect(async ()=> {
         //if user is signed in, add to History
-        if (!history && !!user && Object.keys(stockSchema).length > 0 && articleBreakdownResult.length > 0 && behaviouralTraitsResult.length > 0
+        if (history === undefined && !!user && Object.keys(stockSchema).length > 0 && articleBreakdownResult.length > 0 && behaviouralTraitsResult.length > 0
         && emotionalTraitsResult.length > 0 && iptcResult.length > 0 && peerCompResult.length > 0 && sentimentResult.length > 0 && trendsResult.length > 0) {
             const resultData = {
                 stock: stockSchema,
@@ -73,7 +73,7 @@ export default function Result({news, search, user, setUser, history}) {
                             }),
                             history: user.history
                         })
-                        setUser({...user, ...updatedUser})
+                        await setUser({...user, ...updatedUser})
                         console.log(updatedUser)
                     }}/> :
                     <StarBorderIcon style={{ color: "#ffc107", cursor: "pointer"}} onClick={async () => {
@@ -83,41 +83,41 @@ export default function Result({news, search, user, setUser, history}) {
                                 watchlist: [...user.watchlist, stockSchema],
                                 history: user.history
                             })
-                            setUser({...user, ...updatedUser})
+                            await setUser({...user, ...updatedUser})
                             console.log(updatedUser)
                         }
                     }}/>}
             </div>}
            <Grid container justify="center" spacing={5}>
                <Grid item md={4} xs={6}>
-                   <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult}/>
+                   <OverallSentiment newsList={news} token={expertAiToken} setSentimentResult={setSentimentResult} user={user} historyIndex={history}/>
                </Grid>
                <Grid item md={8} xs={12}>
-                   <Trends stock={search} setTrendsResult={setTrendsResult}/>
+                   <Trends stock={search} setTrendsResult={setTrendsResult} user={user} historyIndex={history}/>
                </Grid>
            </Grid>
-           <Grid container justify="center" spacing={5} style={{marginTop:"22px"}}>
+           <Grid container justify="center" spacing={5} style={{marginTop:"22px"}} >
                <Grid item sm={6} xs={12}>
-                   <BehaviouralTraits newsList={news} token={expertAiToken} setBehaviouralTraitsResult={setBehaviouralTraitsResult}/>
+                   <BehaviouralTraits newsList={news} token={expertAiToken} setBehaviouralTraitsResult={setBehaviouralTraitsResult} user={user} historyIndex={history}/>
                </Grid>
                <Grid item sm={6} xs={12}>
-                   <EmotionalTraits newsList={news} token={expertAiToken} setEmotionalTraitsResult={setEmotionalTraitsResult}/>
+                   <EmotionalTraits newsList={news} token={expertAiToken} setEmotionalTraitsResult={setEmotionalTraitsResult} user={user} historyIndex={history}/>
                </Grid>
            </Grid>
-           <Grid container justify="center" spacing={5} style={{marginTop:"22px"}}>
+           <Grid container justify="center" spacing={5} style={{marginTop:"22px"}} user={user} historyIndex={history}>
                <Grid item md={6} xs={12}>
-                   <IPTCTopics newsList={news} token={expertAiToken} setIPTCResult={setIPTCResult}/>
+                   <IPTCTopics newsList={news} token={expertAiToken} setIPTCResult={setIPTCResult} user={user} historyIndex={history}/>
                </Grid>
                <Grid item md={6} xs={12}>
-                   <SentimentHistogram newsList={news} token={expertAiToken} sentiment={sentimentResult}/>
+                   <SentimentHistogram newsList={news} sentiment={sentimentResult}/>
                </Grid>
            </Grid>
            <Grid container justify="center" spacing={5} style={{marginTop:"22px", marginBottom: "40px"}}>
                <Grid item lg={5} xs={12}>
-                   <PeerComparison stock={search} sentiment={sentimentResult} setPeerCompResult={setPeerCompResult}/>
+                   <PeerComparison stock={search} sentiment={sentimentResult} setPeerCompResult={setPeerCompResult} user={user} historyIndex={history}/>
                </Grid>
                <Grid item lg={7} xs={12}>
-                   <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult} setArticleBreakdownResult={setArticleBreakdownResult}/>
+                   <ArticleBreakdown newsList={news} token={expertAiToken} sentiment={sentimentResult} setArticleBreakdownResult={setArticleBreakdownResult} user={user} historyIndex={history}/>
                </Grid>
            </Grid>           
        </Grid>

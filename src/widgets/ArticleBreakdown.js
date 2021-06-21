@@ -4,32 +4,37 @@ import Loader from "../components/Loader";
 import { articleBreakdownData } from "../mock_data";
 import {getColor} from "../utils";
 
-function ArticleBreakdown({ newsList, token, sentiment, setArticleBreakdownResult}) {
+function ArticleBreakdown({ newsList, token, sentiment, setArticleBreakdownResult, user, historyIndex}) {
 
     const [articles, setArticles] = React.useState([]);
 
     const loadArticleBreakdown = async () => {
-        const articles = [];
-        for (let i = 0; i < newsList.length; i++) {
-            const mainSentences = await getContentSummary(token, newsList[i].content);
-            if (mainSentences) {
-                articles.push({
-                    title: newsList[i].title,
-                    url: newsList[i].url,
-                    sentiment: sentiment[i].overall,
-                    sentences: mainSentences.map(sentence => sentence.value)
-                });
+        if (sentiment.length > 0) {
+            const articles = [];
+            for (let i = 0; i < newsList.length; i++) {
+                const mainSentences = await getContentSummary(token, newsList[i].content);
+                if (mainSentences) {
+                    articles.push({
+                        title: newsList[i].title,
+                        url: newsList[i].url,
+                        sentiment: sentiment[i].overall,
+                        sentences: mainSentences.map(sentence => sentence.value)
+                    });
+                }
             }
+            setArticles(articles);
+            setArticleBreakdownResult(articles);
         }
-        setArticles(articles);
-        setArticleBreakdownResult(articles);
         // setArticles(articleBreakdownData);
         // setArticleBreakdownResult(articleBreakdownData);
     }
 
     React.useEffect(async () => {
-        if (sentiment.length > 0) {
+        if (historyIndex === undefined) {
             await loadArticleBreakdown();
+        } else {
+            setArticles(user.history[historyIndex].articleBreakdown)
+            setArticleBreakdownResult(user.history[historyIndex].articleBreakdown)
         }
     }, [newsList, sentiment])
 

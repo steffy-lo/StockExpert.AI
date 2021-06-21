@@ -16,7 +16,7 @@ export const getSentimentAnalysis = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/analyze/standard/en/sentiment', {
             "document": {
-                "text": text.slice(0, 4000)
+                "text": text.slice(0, 3000)
             }
         }, {
             headers: {
@@ -33,7 +33,7 @@ export const getBehavioralTraits = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/categorize/behavioral-traits/en', {
             "document": {
-                "text": text.slice(0, 4000)
+                "text": text.slice(0, 3000)
             }
         }, { 
             headers: {
@@ -50,7 +50,7 @@ export const getEmotionalTraits = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/categorize/emotional-traits/en', {
             "document": {
-                "text": text.slice(0, 4000)
+                "text": text.slice(0, 3000)
             }
         }, { 
             headers: {
@@ -67,7 +67,7 @@ export const getIPTCTopics = async (token, text) => {
     try {
         const response = await axios.post('https://nlapi.expert.ai/v2/categorize/iptc/en', {
             "document": {
-                "text": text.slice(0, 4000)
+                "text": text.slice(0, 3000)
             }
         }, { 
             headers: {

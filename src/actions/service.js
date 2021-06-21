@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let DEBUG = 0;
+let DEBUG = 1;
 const host = DEBUG ? "http://localhost:3000" : "";
 
 export const addUser = async (email) => {

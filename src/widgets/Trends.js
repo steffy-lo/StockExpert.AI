@@ -3,7 +3,7 @@ import { LineChart, Line, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} fr
 import {getRecommendationTrends} from "../actions";
 import {recommendationTrends} from "../mock_data";
 
-function Trends({stock, setTrendsResult}) {
+function Trends({stock, setTrendsResult, user, historyIndex}) {
 
     const [recommendations, setRecommendations] = React.useState([]);
 
@@ -14,9 +14,14 @@ function Trends({stock, setTrendsResult}) {
     }
 
     React.useEffect(() => {
-        getTrends()
-        // setRecommendations(recommendationTrends)
-        // setTrendsResult(recommendationTrends);
+        if (historyIndex === undefined) {
+            getTrends()
+            // setRecommendations(recommendationTrends)
+            // setTrendsResult(recommendationTrends);
+        } else {
+            setRecommendations(user.history[historyIndex].trends)
+            setTrendsResult(user.history[historyIndex].trends)
+        }
     }, [stock])
 
     const CustomTooltip = ({ active, payload }) => {

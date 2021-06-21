@@ -3,7 +3,7 @@ import {getNewsSentiment, getPeerCompanies} from "../actions";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {peerSentiment} from "../mock_data";
 
-function PeerComparison({stock, sentiment, setPeerCompResult}) {
+function PeerComparison({stock, sentiment, setPeerCompResult, user, historyIndex}) {
 
     const [stocks, setStocks] = React.useState([]);
     const [sentimentList, setSentimentList] = React.useState([]);
@@ -46,7 +46,6 @@ function PeerComparison({stock, sentiment, setPeerCompResult}) {
                 stockSentimentList.push(res)
             }
         }
-        console.log(stockSentimentList)
         setSentimentList(stockSentimentList);
         setPeerCompResult(stockSentimentList);
     }
@@ -67,13 +66,20 @@ function PeerComparison({stock, sentiment, setPeerCompResult}) {
     };
 
     React.useEffect(() => {
-        getPeers()
+        if (historyIndex === undefined) {
+            getPeers()
+        }
     }, [stock])
 
     React.useEffect(() => {
-        getStockSentiment()
-        // setSentimentList(peerSentiment)
-        // setPeerCompResult(peerSentiment)
+        if (historyIndex === undefined) {
+            getStockSentiment()
+            // setSentimentList(peerSentiment)
+            // setPeerCompResult(peerSentiment)
+        } else {
+            setSentimentList(user.history[historyIndex].peerSentiment)
+            setPeerCompResult(user.history[historyIndex].peerSentiment)
+        }
     }, [stocks, sentiment])
 
     return (

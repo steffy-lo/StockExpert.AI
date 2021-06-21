@@ -73,7 +73,7 @@ function Main({forwardedRef, user, setUser}) {
 
          {/****************** RESULTS *************************/}
          {showResults?
-            <Result news={news} search={search} user={user} setUser={setUser} history={false}/>
+            <Result news={news} search={search} user={user} setUser={setUser}/>
          :null}
 
          

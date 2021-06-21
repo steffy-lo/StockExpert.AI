@@ -5,7 +5,7 @@ import {getBehavioralTraits} from "../actions";
 import {behaviouralTraitsData} from "../mock_data";
 import { COLORS } from "../utils";
 
-export default function BehaviouralTraits({newsList, token, setBehaviouralTraitsResult}) {
+export default function BehaviouralTraits({newsList, token, setBehaviouralTraitsResult, user, historyIndex}) {
 
     const [behavioralTraits, setBehavioralTraits] = useState([]);
     const [loadPieChart, setLoadPieChart] = useState(false);
@@ -40,10 +40,16 @@ export default function BehaviouralTraits({newsList, token, setBehaviouralTraits
     }
 
     useEffect(async() => {
-        await fetchBehavioralTraitsAPI(newsList);
-        // await setBehavioralTraits(behaviouralTraitsData);
-        // await setBehaviouralTraitsResult(behaviouralTraitsData);
-        await setLoadPieChart(true);
+        if (historyIndex === undefined) {
+            await fetchBehavioralTraitsAPI(newsList);
+            // await setBehavioralTraits(behaviouralTraitsData);
+            // await setBehaviouralTraitsResult(behaviouralTraitsData);
+            setLoadPieChart(true);
+        } else {
+            await setBehavioralTraits(user.history[historyIndex].behaviouralTraits)
+            await setBehaviouralTraitsResult(user.history[historyIndex].behaviouralTraits)
+            setLoadPieChart(true);
+        }
     }, [newsList])
 
     const CustomTooltip = ({ active, payload }) => {
