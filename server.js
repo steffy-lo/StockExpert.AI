@@ -83,7 +83,7 @@ app.post('/result/:username', (req, res) => {
 
 // All routes other than above will go to index.html
 app.get("*", (req, res) => {
-    res.send("Stock Expert AI Root API")
+    res.sendFile(__dirname + "/build/index.html");
 });
 
 //establish connection to database
