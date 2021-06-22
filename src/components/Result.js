@@ -52,7 +52,6 @@ export default function Result({news, search, user, setUser, history}) {
                 trends: trendsResult
             }
             console.log(resultData)
-            console.log("Pushed to History!")
             let res = await addToUserHistory(resultData, user.username);
             setUser({...user, ...res});
         }

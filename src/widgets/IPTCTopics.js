@@ -44,7 +44,6 @@ const [IPTCTopics, setIPTCTopics] = useState([]);
             // setIPTCTopics(IPTCData);
             // setIPTCResult(IPTCData);
         } else {
-            console.log("else")
             setIPTCTopics(user.history[historyIndex].IPTCTopics)
             setIPTCResult(user.history[historyIndex].IPTCTopics)
         }

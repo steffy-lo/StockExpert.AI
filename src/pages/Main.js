@@ -50,6 +50,8 @@ function Main({forwardedRef, user, setUser}) {
              />
          </div>
          {loading?<Loader/>:showResults?null:<Button style={{ width: "15%", fontSize: "18px"}} onClick={async () => {
+             alert("The News API free tier does not permit usage in production. Please log in with our test credentials to view previous results that was run in development. \n\n" +
+                 "Username: stockexpert.ai@gmail.com \nPassword: stocksaregreat123")
              setLoading(true);
              const newsList = await getStockNews(search);
              for (let i = 0; i < newsList.length; i++) {

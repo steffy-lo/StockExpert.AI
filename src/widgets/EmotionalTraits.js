@@ -35,7 +35,6 @@ export default function EmotionalTraits({newsList, token, setEmotionalTraitsResu
                     }
                 })
             })
-            console.log(emotionalTraits)
             setEmotionalTraits(emotionalTraits);
             setEmotionalTraitsResult(emotionalTraits);
         });

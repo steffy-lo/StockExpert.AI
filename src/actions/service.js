@@ -1,7 +1,7 @@
 import axios from "axios";
 
-let DEBUG = 0;
-const host = DEBUG ? "http://localhost:3000" : "http://stock-expert-ai.herokuapp.com";
+let DEBUG = 1;
+const host = DEBUG ? "http://localhost:3000" : "";
 
 export const addUser = async (email) => {
     try {
