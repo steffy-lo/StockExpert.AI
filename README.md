@@ -27,17 +27,37 @@ The main goal of our app is to provide sentimental analysis on any stock with si
 - To store user data, we use MongoDB
 - The APIs we used to build this app is Finnhub.io API, News API and expert.ai NLP API
 
-## How to test our demo
-1. Go to https://stock-expert-ai.herokuapp.com/
-2. Click "Sign In"
-3. Enter username: stockexpert.ai@gmail.com
-4. Enter password: stocksaregreat123
-
 ## Challenges we ran into
 1. **API limits:** Using free tier versions for Finnhub.io, News and expert.ai APIs posed some challenges and restrictions after many testing. We had to create a new Finnhub.io dev account after we reached their limit.
 2. **News parser**: Feeding in relevant text to the expert.ai was a challenge due to the news parser scraping any text in the article including the date, author’s name, and social media links. We had to ensure only the article's content is analysed by the API.
 3. **Database design:** we were concerned with how to store so much sentimental data for each user so that our app can easily fetch, push and display this data whenever.
-4. **API in Production Issue**: When deploying our app to Heroku, we noticed that the News API free tier does not permit production environments. However, without this API, the app won’t be able to fetch 15 related news articles for the stock's sentimental analysis. The paid version for this API is too expensive ($499/month). One solution we thought of was asking the judges to test our app locally, but that would mean disclosing our other environment variables (Finnhub.io API, expert.ai API, AWS and MongoDB credentials). So the workaround is to create a test account in which we have already run sentimental analysis on a few stocks. All the data is saved under that account and we deployed the app to production for the judges to test on that account.
+4. **API in Production Issue**: When deploying our app to Heroku, we noticed that the News API free tier does not permit production environments. However, without this API, the app won’t be able to fetch 15 related news articles for the stock's sentimental analysis. The paid version for this API is too expensive ($499/month). 
+
+So the workaround is to create a test account in which we have already run sentimental analysis on a few stocks. This data is saved under that account and we deployed the app to heroku for the judges and anyone to test on that account.
+
+You can view watchlist, history and see the results for the saved stocks under the test account. But you won't be able to run analysis on a new stock on the heroku app because News API is not free in production.
+
+If you really want to test the app's "Run Sentimental Analysis" function, you can clone the repo to a local machine. Create an `.env` in the root folder and pass in your own credentials because we cannot share our own credentials to the public. Sorry for any inconvenience.
+
+```
+REACT_APP_FINNHUB_API_TOKEN=
+REACT_APP_NEWS_API_TOKEN=
+REACT_APP_EXPERT_AI_USERNAME=
+REACT_APP_EXPERT_AI_PASSWORD=
+
+REACT_APP_AWS_REGION=
+REACT_APP_COGNITO_ID_POOL=
+REACT_APP_USER_POOLS_ID=
+REACT_APP_USER_POOLS_WEB_CLIENT_ID=
+
+MONGODB_URI=
+```
+## How to test our demo on heroku
+1. Go to https://stock-expert-ai.herokuapp.com/
+2. Click "Sign In"
+3. Enter username: stockexpert.ai@gmail.com
+4. Enter password: stocksaregreat123
+5. View History, Watchlist and Sentimental Analysis data on saved stocks
 
 ## Accomplishments that we're proud of
 - Completed a fully functioning demo that encompasses our vision when we started on this project
