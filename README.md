@@ -56,3 +56,6 @@ The main goal of our app is to provide sentimental analysis on any stock with si
 - **Action recommendations:** Recommend next action after sentimental data is displayed (i.e. buy, hold or sell)
 - **Enhance UI/UX experience:** User customization (i.e. risk threshold, full in-depth sentimental and technical analysis, etc.), cleaner and more engaging UI and graphs
 - **Export, save and download data from History or Watchlist**: Allow user to export their data for their own records
+
+## Learn More
+Read the [About](https://github.com/steffy-lo/StockExpert.AI/blob/master/About.md) documentation to learn more about each chart and what they mean.
