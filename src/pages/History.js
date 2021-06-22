@@ -10,15 +10,17 @@ export default function History({user, setUser}){
     const [mean, setMean] = useState([]);
     const [detailIndex, setDetailIndex] = useState(-1);
 
-    useEffect(async()=>{
-        let meanArr = [];
-        user.history.map(data=>{
-            let mean = calculateMean(data.sentiment);
-            meanArr.push(mean);
-        })
-        await setMean(meanArr);
-        await setHistory(user.history);
-        console.log(user)
+    useEffect(async() => {
+        if (user && user.history) {
+            let meanArr = [];
+            user.history.map(data => {
+                let mean = calculateMean(data.sentiment);
+                meanArr.push(mean);
+            })
+            await setMean(meanArr);
+            await setHistory(user.history);
+            console.log(user)
+        }
     },[user])
 
     const calculateMean = (result) =>{
