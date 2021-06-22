@@ -1,5 +1,6 @@
 ### Overall Sentiment
 Shows the average sentiment across 15 recent news articles analyzed.
+
 ![overall_sentiment](https://user-images.githubusercontent.com/46694812/122924462-5e914300-d398-11eb-8135-57ca28239270.PNG)
 
 ### Article Breakdown
