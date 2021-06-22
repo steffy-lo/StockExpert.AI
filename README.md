@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://res.cloudinary.com/viclo2606/image/upload/v1624362747/title_rwedcs.gif" />
+</p>
+
 ## Inspiration
 
 In finance, sentimental analysis is an important tool for stock analysis.
@@ -17,25 +21,23 @@ The main goal of our app is to provide sentimental analysis on any stock with si
 4. All the data is then compiled and presented in readable charts and graphs using the Recharts.js library
 5. More features, such as saving stock searches to watchlist or looking at past sentimental results, can be used if the user creates a free account in the app.
 
-> When testing our app, please sign in with our test account:
-Username: stockexpert.ai@gmail.com
-Password: stocksaregreat123
-
 ## How we built it
 - For the front end, we use the React framework and Recharts.js library to render the graphs and charts
 - For user authentication, we use AWS Amplify + Cognito
 - To store user data, we use MongoDB
 - The APIs we used to build this app is Finnhub.io API, News API and expert.ai NLP API
 
+## How to test our demo
+1. Go to https://stock-expert-ai.herokuapp.com/
+2. Click "Sign In"
+3. Enter username: stockexpert.ai@gmail.com
+4. Enter password: stocksaregreat123
+
 ## Challenges we ran into
 1. **API limits:** Using free tier versions for Finnhub.io, News and expert.ai APIs posed some challenges and restrictions after many testing. We had to create a new Finnhub.io dev account after we reached their limit.
 2. **News parser**: Feeding in relevant text to the expert.ai was a challenge due to the news parser scraping any text in the article including the date, author’s name, and social media links. We had to ensure only the article's content is analysed by the API.
 3. **Database design:** we were concerned with how to store so much sentimental data for each user so that our app can easily fetch, push and display this data whenever.
 4. **API in Production Issue**: When deploying our app to Heroku, we noticed that the News API free tier does not permit production environments. However, without this API, the app won’t be able to fetch 15 related news articles for the stock's sentimental analysis. The paid version for this API is too expensive ($499/month). One solution we thought of was asking the judges to test our app locally, but that would mean disclosing our other environment variables (Finnhub.io API, expert.ai API, AWS and MongoDB credentials). So the workaround is to create a test account in which we have already run sentimental analysis on a few stocks. All the data is saved under that account and we deployed the app to production for the judges to test on that account.
-
-> When testing our app, please sign in with our test account:
-Username: stockexpert.ai@gmail.com
-Password: stocksaregreat123
 
 ## Accomplishments that we're proud of
 - Completed a fully functioning demo that encompasses our vision when we started on this project
